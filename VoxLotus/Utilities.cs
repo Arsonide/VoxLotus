@@ -14,7 +14,8 @@ namespace VoxLotus
 
         static Utilities()
         {
-            CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+            // Anything other than English throws off the pluralizer.
+            CultureInfo cultureInfo = new CultureInfo("en-US");
             textInfo = cultureInfo.TextInfo;
             pluralizer = PluralizationService.CreateService(cultureInfo);
         }
