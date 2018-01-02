@@ -46,7 +46,10 @@ namespace VoxLotus
 
             using (var writer = new StreamWriter(filePath, true))
             {
-                writer.WriteLine("Message :" + ex.Message + Environment.NewLine + "StackTrace :" + ex.StackTrace + Environment.NewLine + "Date :" + DateTime.Now.ToString(CultureInfo.CurrentCulture));
+                writer.WriteLine("Message :" + ex.Message + Environment.NewLine +
+                                 "Exception :" + ex.InnerException + Environment.NewLine +
+                                 "StackTrace :" + ex.StackTrace + Environment.NewLine +
+                                 "Date :" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
             }
         }
