@@ -227,13 +227,13 @@ namespace VoxLotus.Parsers
                     switch (state)
                     {
                         case TickerState.Enabled:
-                            return $"Day time is starting {location}.";
+                            return $"It is now day time {location}.";
                         case TickerState.Disabled:
-                            return $"Night time is starting {location}.";
+                            return $"It is now night time {location}.";
                         case TickerState.Disabling:
-                            return $"Night time is starting soon {location}.";
+                            return $"It will soon be night time {location}.";
                         case TickerState.Enabling:
-                            return $"Day time is starting soon {location}.";
+                            return $"It will soon be day time {location}.";
                         default:
                             return string.Empty;
                     }
@@ -241,23 +241,27 @@ namespace VoxLotus.Parsers
                     switch (state)
                     {
                         case TickerState.Enabled:
-                            return $"Day time is starting {location}.";
+                            return $"It is now day time {location}.";
+                        case TickerState.Disabled:
+                            return $"It is no longer day time {location}.";
                         case TickerState.Disabling:
-                            return $"Day time is ending soon {location}.";
+                            return $"It will soon no longer be day time {location}.";
                         case TickerState.Enabling:
-                            return $"Day time is starting soon {location}.";
+                            return $"It will soon be day time {location}.";
                         default:
                             return string.Empty;
                     }
                 case CyclicBroadcastType.OnlyDisabled:
                     switch (state)
                     {
+                        case TickerState.Enabled:
+                            return $"It is no longer night time {location}.";
                         case TickerState.Disabled:
-                            return $"Night time is starting {location}.";
+                            return $"It is now night time {location}.";
                         case TickerState.Disabling:
-                            return $"Night time is starting soon {location}.";
+                            return $"It will soon be night time {location}.";
                         case TickerState.Enabling:
-                            return $"Night time is ending soon {location}.";
+                            return $"It will soon no longer be night time {location}.";
                         default:
                             return string.Empty;
                     }
