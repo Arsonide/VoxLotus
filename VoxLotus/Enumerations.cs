@@ -31,6 +31,14 @@
         Disabling
     }
 
+    public enum CyclicBroadcastType
+    {
+        None,
+        All,
+        OnlyDisabled,
+        OnlyEnabled
+    }
+
     public enum ConnectionStatus
     {
         Connecting,
