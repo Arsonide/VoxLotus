@@ -1,0 +1,1585 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WarframeNET</name>
+    </assembly>
+    <members>
+        <member name="T:WarframeNET.NexusStats.NexusClient">
+            <summary>
+            Client used to GET from NexusStats
+            </summary>
+        </member>
+        <member name="M:WarframeNET.NexusStats.NexusClient.GetItemListAsync">
+            <summary>
+            Get the item list from NexusStats
+            </summary>
+            <returns>List[NexusItemInfo]</returns>
+        </member>
+        <member name="M:WarframeNET.NexusStats.NexusClient.GetItemAsync(System.String)">
+            <summary>
+            Get an item from NexusStats
+            </summary>
+            <param name="name"></param>
+            <returns>NexusItem, or empty object if unknown</returns>
+        </member>
+        <member name="M:WarframeNET.NexusStats.NexusClient.GetProfileAsync(System.String)">
+            <summary>
+            Get a player profile from NexusStats
+            </summary>
+            <param name="name">Name of the player.</param>
+            <returns></returns>
+            <seealso cref="T:WarframeNET.NexusStats.NexusProfile"/>
+        </member>
+        <member name="M:WarframeNET.NexusStats.NexusClient.#ctor">
+            <summary>
+            Create a new instance of NexusClient
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NexusItem">
+            <summary>
+            Item stats returned from NexusStats' API.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItem.Name">
+            <summary>
+            Name of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItem.Type">
+            <summary>
+            Type of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItem.Supply">
+            <summary>
+            Market supply of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItem.Demand">
+            <summary>
+            Market demand of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItem.Components">
+            <summary>
+            Components of this item if any.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NexusItemComponent">
+            <summary>
+            Stats for the components of an item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Name">
+            <summary>
+            Name of the component.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Average">
+            <summary>
+            Average price of the component.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Median">
+            <summary>
+            Median price of the component.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Min">
+            <summary>
+            Minimum price of the component.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Max">
+            <summary>
+            Maximum price of the component.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Supply">
+            <summary>
+            Supply stats of the component.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Demand">
+            <summary>
+            Demand stats of the component.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemComponent.Interval">
+            <summary>
+            Intervals of stat changes for the component.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NexusItemInfo">
+            <summary>
+            An item returned from NexusStats' Item List
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemInfo._id">
+            <summary>
+            The item's ID.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemInfo.Name">
+            <summary>
+            The name of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemInfo.Type">
+            <summary>
+            The type of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemInfo.Category">
+            <summary>
+            The category of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemInfo.Components">
+            <summary>
+            The components of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusItemInfo.Ranks">
+            <summary>
+            The rank of the item.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NexusMarketInterval">
+            <summary>
+            Interval of the stats of an item on NexusStats.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusMarketInterval.Average">
+            <summary>
+            Average price of an item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusMarketInterval.Min">
+            <summary>
+            Minimum price of an item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusMarketInterval.Max">
+            <summary>
+            Maximum price of an item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusMarketInterval.Supply">
+            <summary>
+            Supply stats of an item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusMarketInterval.Demand">
+            <summary>
+            Demand stats of an item.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NexusMarketStat">
+            <summary>
+            Stats for Demand/Supply of an item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusMarketStat.Count">
+            <summary>
+            Count of Demand/Supply.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusMarketStat.Percentage">
+            <summary>
+            Percentage between Demand/Supply.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NAccolades">
+            <summary>
+            Special statuses of a player inside NexusProfile.
+            <seealso cref="T:WarframeNET.NexusStats.NexusProfile"/>
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NAccolades.IsFounder">
+            <summary>
+            Is the player a Founder?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NAccolades.IsGuide">
+            <summary>
+            Is the player a Guide of the Lotus?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NAccolades.IsModerator">
+            <summary>
+            Is the player a Moderator?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NAccolades.IsPartner">
+            <summary>
+            Is the player a Partner?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NAccolades.IsStaff">
+            <summary>
+            Is the player a Staff member?
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NClan">
+            <summary>
+            Clan information of a player in NexusProfile.
+            <seealso cref="T:WarframeNET.NexusStats.NexusProfile"/>
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NClan.Name">
+            <summary>
+            Name of the Clan.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NClan.Rank">
+            <summary>
+            Rank of the Clan.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NClan.Type">
+            <summary>
+            Type of the Clan.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NexusProfile">
+            <summary>
+            Warframe player profile searched by NexusBot
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.Name">
+            <summary>
+            Name of the player.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.Accolades">
+            <summary>
+            Special statuses the player has.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.Mastery">
+            <summary>
+            Information about the player's Mastery.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.Clan">
+            <summary>
+            Information about the player's Clan if any.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.Markings">
+            <summary>
+            List of NPCs the player is currently marked by.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.CreatedAt">
+            <summary>
+            Date the profile was created by NexusBot.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.UpdatedAt">
+            <summary>
+            Date the profile was updated by NexusBot.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.Error">
+            <summary>
+            If not null, Error is the type of error that occured when requesting player information.
+            If null, no error has occured.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NexusProfile.ErrorReason">
+            <summary>
+            If not null, ErrorReason is the reason of the Error.
+            If null, no error has occured.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NMarked">
+            <summary>
+            Marking information of a player in NexusProfile.
+            <seealso cref="T:WarframeNET.NexusStats.NexusProfile"/>
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NMarked.IsMarkedByStalker">
+            <summary>
+            Is the player marked to death by Stalker?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NMarked.IsMarkedByG3">
+            <summary>
+            Is the player marked to death by The Grustrag Three?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NMarked.IsMarkedByZanuka">
+            <summary>
+            Is the player marked to death by Zanuka?
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NexusStats.NMastery">
+            <summary>
+            Mastery information of a player in NexusProfile.
+            <seealso cref="T:WarframeNET.NexusStats.NexusProfile"/>
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NMastery.Rank">
+            <summary>
+            Rank of the player.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NMastery.XP">
+            <summary>
+            Current XP of the player.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NexusStats.NMastery.RemainingXP">
+            <summary>
+            Amount of XP required to level up.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NRank">
+            <summary>
+            Rank information of a player in NexusProfile.
+            <seealso cref="!:NexusProfile"/>
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NRank.Name">
+            <summary>
+            Name of the Rank.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NRank.Number">
+            <summary>
+            Mastery Level number.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NRank.NextRankName">
+            <summary>
+            Name of the next Rank.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Endpoint">
+            <summary>
+            Endpoints for the Warframe World State API
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.WorldState">
+            <summary>
+            Basic URL without any endpoint for the world state parser.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.Alerts">
+            <summary>
+            Alerts.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.ConclaveChallenges">
+            <summary>
+            Conclave Challenges.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.DailyDeals">
+            <summary>
+            Daily Deals.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.DarkSectors">
+            <summary>
+            Dark Sectors.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.Events">
+            <summary>
+            Events.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.FlashSales">
+            <summary>
+            Flash Sales.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.Fissures">
+            <summary>
+            Fissures.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.GlobalUpgrades">
+            <summary>
+            Global Upgrades.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.Invasions">
+            <summary>
+            Invasions.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.News">
+            <summary>
+            News.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.PersistentEnemies">
+            <summary>
+            Persistent Enemies.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.Simaris">
+            <summary>
+            Simaris.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.Sortie">
+            <summary>
+            Sortie.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.SyndicateMissions">
+            <summary>
+            Syndicate Missions.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.VoidTrader">
+            <summary>
+            Void Trader.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Endpoint.List">
+            <summary>
+            List of correct endpoints.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.EndpointNotFoundException">
+            <summary>
+            Thrown when an endpoint is incorrect.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Platform">
+            <summary>
+            List of correct Platforms.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Platform.PC">
+            <summary>
+            PC Platform.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Platform.PSFOUR">
+            <summary>
+            PS4 Platform.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Platform.XBOXONE">
+            <summary>
+            XBOX-ONE Platform.
+            </summary>
+        </member>
+        <member name="F:WarframeNET.Platform.List">
+            <summary>
+            List of correct platforms.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.PlatformNotFoundException">
+            <summary>
+            Thrown when a platform isn't valid.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.WarframeClient">
+            <summary>
+            The base client to GET json from Warframe's World State API.
+            </summary>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetWorldStateAsync(System.String)">
+            <summary>
+            Get the current world state for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/> </param>
+            <returns>The WorldState <seealso cref="T:WarframeNET.WorldState"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetAlertsAsync(System.String)">
+            <summary>
+            Get the current alerts for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Alerts <seealso cref="T:WarframeNET.Alert"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetConclaveChallengesAsync(System.String)">
+            <summary>
+            Get the current conclave challenges for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Conclave Challenges <seealso cref="T:WarframeNET.ConclaveChallenge"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetDailyDealsAsync(System.String)">
+            <summary>
+            Get the current daily deals for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Daily Deals <seealso cref="T:WarframeNET.DailyDeal"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetDarkSectorsAsync(System.String)">
+            <summary>
+            Gets the dark sectors for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Alerts <seealso cref="T:WarframeNET.DarkSector"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetEventsAsync(System.String)">
+            <summary>
+            Get the current events for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Events <seealso cref="T:WarframeNET.Event"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetFissuresAsync(System.String)">
+            <summary>
+            Get the current fissures for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Fissures <seealso cref="T:WarframeNET.Fissure"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetFlashSalesAsync(System.String)">
+            <summary>
+            Get the current flash sales for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Flash Sales <seealso cref="T:WarframeNET.FlashSale"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetGlobalUpgradesAsync(System.String)">
+            <summary>
+            Get the current global upgrades for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Global Upgrades <seealso cref="T:WarframeNET.GlobalUpgrade"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetInvasionsAsync(System.String)">
+            <summary>
+            Get the current invasions for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Invasions <seealso cref="T:WarframeNET.Invasion"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetNewsAsync(System.String)">
+            <summary>
+            Get the current news for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of News Articles <seealso cref="T:WarframeNET.NewsArticle"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetPersistentEnemiesAsync(System.String)">
+            <summary>
+            Get the current persistent enemies for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of Persistent Enemies <seealso cref="T:WarframeNET.PersistentEnemy"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetSimarisAsync(System.String)">
+            <summary>
+            Get the current news for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>The current Simaris mission <seealso cref="T:WarframeNET.Simaris"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetSortieAsync(System.String)">
+            <summary>
+            Get the current sortie for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>The current Sortie<seealso cref="T:WarframeNET.Sortie"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetSyndicateMissionsAsync(System.String)">
+            <summary>
+            Get the current syndicate missions for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>A list of News Articles <seealso cref="T:WarframeNET.NewsArticle"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetVoidTraderAsync(System.String)">
+            <summary>
+            Get the current void trader for a given platform.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>The current Void Trader's items. <seealso cref="T:WarframeNET.VoidTrader"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.GetTimestampAsync(System.String)">
+            <summary>
+            Get the timestamp of the last modification of the World State.
+            </summary>
+            <param name="platform"> The platform to get info from. <seealso cref="T:WarframeNET.Platform"/></param>
+            <returns>DateTime (last modification) <seealso cref="T:WarframeNET.NewsArticle"/></returns>
+        </member>
+        <member name="M:WarframeNET.WarframeClient.#ctor">
+            <summary>
+            Usage: new WarframeClient();
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Alert">
+            <summary>
+            Alert from the in-game world state.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Alert.Id">
+            <summary>
+            Id of the alert.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Alert.StartTime">
+            <summary>
+            Start time of the alert.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Alert.EndTime">
+            <summary>
+            End time of the alert.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Alert.Mission">
+            <summary>
+            The alert's mission.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.ConclaveChallenge">
+            <summary>
+            Conclave Challenge from the in-game world state.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.ConclaveChallenge.Id">
+            <summary>
+            Id of the challenge. 
+            </summary>
+        </member>
+        <member name="P:WarframeNET.ConclaveChallenge.Description">
+            <summary>
+            Description of the challenge.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.ConclaveChallenge.EndTime">
+            <summary>
+            End time of the challenge.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.ConclaveChallenge.Amount">
+            <summary>
+            Amount of challenges.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.ConclaveChallenge.Mode">
+            <summary>
+            Mode of the challenge.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.ConclaveChallenge.Category">
+            <summary>
+            Category of the challenge.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.CountedItem">
+            <summary>
+            Resource bonuses in mission rewards.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.CountedItem.Count">
+            <summary>
+            Count of the resource.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.CountedItem.Type">
+            <summary>
+            Type of the resource.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.DailyDeal">
+            <summary>
+            Daily deals! Darvos fire sale! Buy, or I burn it...
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DailyDeal.Item">
+            <summary>
+            Name of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DailyDeal.Id">
+            <summary>
+            Id of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DailyDeal.OriginalPrice">
+            <summary>
+            Original price of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DailyDeal.SalePrice">
+            <summary>
+            Sale price of the item.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DailyDeal.Total">
+            <summary>
+            Quantity of available items.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DailyDeal.Sold">
+            <summary>
+            Amount of sold items.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DailyDeal.EndTime">
+            <summary>
+            End time of the deal.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.DarkSector">
+            <summary>
+            In-game Dark Sector
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.Id">
+            <summary>
+            Id of the dark sector.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.RailType">
+            <summary>
+            Type of the rail.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.IsAlliance">
+            <summary>
+            Is controlled by an alliance?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DeployerName">
+            <summary>
+            Name of the deployer.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DeployerClan">
+            <summary>
+            Clan of the deployer.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DefenderName">
+            <summary>
+            Name of the defender.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DefenderMOTD">
+            <summary>
+            MOTD of the defender.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DefenderPoolRemaining">
+            <summary>
+            Number of defenders remaining.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DefenderMaxPool">
+            <summary>
+            Defender's max amount of defenders.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DefenderRailHealReserve">
+            <summary>
+            Current health of the defender's rail.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DefenderStartTime">
+            <summary>
+            Start time of the defender's deployement.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.CreditTaxRate">
+            <summary>
+            Credit tax rate.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.ItemsTaxRate">
+            <summary>
+            Items tax rate.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.MemberItemsTaxRate">
+            <summary>
+            Clan member's items tax rate.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.DamagePerMission">
+            <summary>
+            Damage per mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.BattlePayReserve">
+            <summary>
+            Battle pay reserve.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.PerMissionBattlePay">
+            <summary>
+            Per mission battle pay.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.BattlePaySetBy">
+            <summary>
+            Who set the battle pay.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.BattlePaySetByClan">
+            <summary>
+            What clan set the battle pay.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.TaxChangedBy">
+            <summary>
+            Who changed the tax lately.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.TaxChangedByClan">
+            <summary>
+            What clan changed the tax lately.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.Mission">
+            <summary>
+            Mission of the dark sector's planet.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSector.History">
+            <summary>
+            Battle history for the dark sector.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.DarkSectorBattle">
+            <summary>
+            Battle that occured in a dark sector.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSectorBattle.Defender">
+            <summary>
+            Who defended.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSectorBattle.IsDefenderAlliance">
+            <summary>
+            Were the defenders an alliance?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSectorBattle.Attacker">
+            <summary>
+            Who attacked.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSectorBattle.IsAttackerAlliance">
+            <summary>
+            Were the attackers an alliance.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSectorBattle.Winner">
+            <summary>
+            Who won the battle
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSectorBattle.StartTime">
+            <summary>
+            Battle start time.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.DarkSectorBattle.EndTime">
+            <summary>
+            Battle end time.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Event">
+            <summary>
+            In-game event
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.Id">
+            <summary>
+            Id of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.Description">
+            <summary>
+            Description of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.Tooltip">
+            <summary>
+            Tooltip of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.Faction">
+            <summary>
+            Faction of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.Node">
+            <summary>
+            Node of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.VictimNode">
+            <summary>
+            Victim node of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.ConcurrentNodes">
+            <summary>
+            List of concurrent nodes.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.StartTime">
+            <summary>
+            Start time of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.EndTime">
+            <summary>
+            End time of the event.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.Rewards">
+            <summary>
+            List of event rewards.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.SmallInterval">
+            <summary>
+            Small score interval.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.LargeInterval">
+            <summary>
+            Large score interval.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Event.MaximumScore">
+            <summary>
+            Maximum score yet.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Fissure">
+            <summary>
+            In-game fissure.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.Id">
+            <summary>
+            Id of the fissure.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.Node">
+            <summary>
+            Node of the fissure.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.MissionType">
+            <summary>
+            The mission type of the fissure.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.Enemy">
+            <summary>
+            Enemy of the fissure.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.Tier">
+            <summary>
+            Tier of the fissure.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.TierNumber">
+            <summary>
+            Tier number of the fissure.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.StartTime">
+            <summary>
+            Fissure start time.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Fissure.EndTime">
+            <summary>
+            Fissure end time.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.FlashSale">
+            <summary>
+            In-game flash sale.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.FlashSale.Item">
+            <summary>
+            Item sold.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.FlashSale.Id">
+            <summary>
+            Id of the flash sale.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.FlashSale.Discount">
+            <summary>
+            Discount on the price.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.FlashSale.EndTime">
+            <summary>
+            End time of the flash sale.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.FlashSale.PremiumOverride">
+            <summary>
+            Override for premium.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.FlashSale.IsFeatured">
+            <summary>
+            Is the item featured?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.FlashSale.IsPopular">
+            <summary>
+            Is the item popular?
+            </summary>
+        </member>
+        <member name="T:WarframeNET.GlobalUpgrade">
+            <summary>
+            In-game global upgrade.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.GlobalUpgrade.Operation">
+            <summary>
+            Operation of the G.U.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.GlobalUpgrade.Upgrade">
+            <summary>
+            Upgrade of the operation.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.GlobalUpgrade.UpgradeOperationValue">
+            <summary>
+            Value of the Operation's upgrade.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.GlobalUpgrade.StartTime">
+            <summary>
+            Start time of the upgrade.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.GlobalUpgrade.EndTime">
+            <summary>
+            End time of the upgrade.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Invasion">
+            <summary>
+            In-game invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.Id">
+            <summary>
+            Id of the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.Node">
+            <summary>
+            Node of the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.Description">
+            <summary>
+            Description of the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.IsVsInfestation">
+            <summary>
+            Is the invasion versus infected?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.AttackingFaction">
+            <summary>
+            Attacking faction of the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.DefendingFaction">
+            <summary>
+            Defending faction of the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.AttackerReward">
+            <summary>
+            Reward for attackers.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.DefenderReward">
+            <summary>
+            Reward for defenders.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.StartTime">
+            <summary>
+            Start time of the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.Count">
+            <summary>
+            Count of invasions.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.RequiredRuns">
+            <summary>
+            Required runs for the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.Completion">
+            <summary>
+            Current completion of the invasion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Invasion.IsCompleted">
+            <summary>
+            Is the invasion completed?
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Mission">
+            <summary>
+            In-game mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.Node">
+            <summary>
+            Node of the mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.Type">
+            <summary>
+            Type of the mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.Faction">
+            <summary>
+            Faction of the mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.Reward">
+            <summary>
+            Reward on mission completion.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.EnemyMinLevel">
+            <summary>
+            Minimum enemy level.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.EnemyMaxLevel">
+            <summary>
+            Maximum enemy level.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.IsNightmare">
+            <summary>
+            Is the mission a nightmare?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.IsArchwingRequired">
+            <summary>
+            Is an archwing required?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Mission.WaveMaxNumber">
+            <summary>
+            Maximum number of waves.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.NewsArticle">
+            <summary>
+            An article of the current game news.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NewsArticle.Id">
+            <summary>
+            Id of the article.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NewsArticle.Message">
+            <summary>
+            Message of the article.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NewsArticle.ETA">
+            <summary>
+            Estimate Time of Arrival of the article.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NewsArticle.Link">
+            <summary>
+            Link to the article online.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NewsArticle.Priority">
+            <summary>
+            Is this article important?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NewsArticle.Date">
+            <summary>
+            Date of the article.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.NewsArticle.ImageLink">
+            <summary>
+            Link to an image if any.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.PersistentEnemy">
+            <summary>
+            In-game persistent enemy.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.AgentType">
+            <summary>
+            Type of the agent.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.Id">
+            <summary>
+            Id of the enemy.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.Rank">
+            <summary>
+            Rank of the enemy.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.Region">
+            <summary>
+            Region of the enemy.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.FleeDamage">
+            <summary>
+            Damage when fleeing.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.HealthPercent">
+            <summary>
+            Current HP.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.IsDiscovered">
+            <summary>
+            Has the enemy been discovered?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.IsUsingTicketing">
+            <summary>
+            Is the enemy using ticketing?
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.LastDiscoveredAt">
+            <summary>
+            Last location of the enemy if discovered.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.LastDiscoveredTime">
+            <summary>
+            Time of the last discovery.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.PersistentEnemy.LocationTag">
+            <summary>
+            Tag of the location.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Reward">
+            <summary>
+            In-game reward.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Reward.Items">
+            <summary>
+            List of rewarded items.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Reward.CountedItems">
+            <summary>
+            List of rewarded resources.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Reward.Credits">
+            <summary>
+            Credits rewarded.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Simaris">
+            <summary>
+            In-game simaris targets. Deprecated.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Simaris.Target">
+            <summary>
+            Target name.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Simaris.IsTargetActive">
+            <summary>
+            Is the target still active?
+            </summary>
+        </member>
+        <member name="T:WarframeNET.Sortie">
+            <summary>
+            In-game sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Sortie.Id">
+            <summary>
+            Id of the sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Sortie.StartTime">
+            <summary>
+            Start time of the sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Sortie.EndTime">
+            <summary>
+            End time of the sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Sortie.RewardPool">
+            <summary>
+            Reeward pool of the sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Sortie.Variants">
+            <summary>
+            Variants of the sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Sortie.Boss">
+            <summary>
+            Boss of the sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.Sortie.Faction">
+            <summary>
+            Faction of the sortie.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.SortieVariant">
+            <summary>
+            A variant of a sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SortieVariant.Boss">
+            <summary>
+            Boss of the variant.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SortieVariant.Planet">
+            <summary>
+            Planet of the variant.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SortieVariant.MissionType">
+            <summary>
+            Mission type of the variant.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SortieVariant.Modifier">
+            <summary>
+            Modifier of the variant.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SortieVariant.ModifierDescription">
+            <summary>
+            Modifier of the variant.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SortieVariant.Node">
+            <summary>
+            Node of the variant.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.SyndicateMission">
+            <summary>
+            In-game syndicate mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SyndicateMission.Id">
+            <summary>
+            Id of the syndicate mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SyndicateMission.StartTime">
+            <summary>
+            Start time of the syndicate mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SyndicateMission.EndTime">
+            <summary>
+            End time of the syndicate mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SyndicateMission.Syndicate">
+            <summary>
+            Syndicate of the mission.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.SyndicateMission.Nodes">
+            <summary>
+            Nodes on which you can start the mission.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.VoidTrader">
+            <summary>
+            In-game void trader.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTrader.Id">
+            <summary>
+            Id of the void trader.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTrader.StartTime">
+            <summary>
+            Start time of the void trader.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTrader.EndTime">
+            <summary>
+            End time of the void trader.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTrader.Character">
+            <summary>
+            Character who plays the trader.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTrader.Location">
+            <summary>
+            Location of the trader.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTrader.Inventory">
+            <summary>
+            The trader's inventory.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.VoidTraderItem">
+            <summary>
+            Item the void trader is currently selling.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTraderItem.Item">
+            <summary>
+            The item's name.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTraderItem.Ducats">
+            <summary>
+            Cost in ducats.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.VoidTraderItem.Credits">
+            <summary>
+            Cost in credit.
+            </summary>
+        </member>
+        <member name="T:WarframeNET.WorldState">
+            <summary>
+            The current World State of Warframe. Please note the API might be ahead of the game.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.Timestamp">
+            <summary>
+            Date of the World State's last change.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_News">
+            <summary>
+            Current game news.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_Events">
+            <summary>
+            Current game events.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_Alerts">
+            <summary>
+            Current game alerts. 
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_Sortie">
+            <summary>
+            Current game sortie.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_SyndicateMissions">
+            <summary>
+            Current game syndicate missions.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_Fissures">
+            <summary>
+            Current game fissures.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_GlobalUpgrades">
+            <summary>
+            Current global upgrades.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_FlashSales">
+            <summary>
+            Current game flash sales.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_Invasions">
+            <summary>
+            Current game invasions.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_DarkSectors">
+            <summary>
+            Current game dark sectors and battles.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_VoidTrader">
+            <summary>
+            Current Void Trader and his items.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_DailyDeals">
+            <summary>
+            Current Daily Deals.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_Simaris">
+            <summary>
+            Simaris targets. Obsolete, targets are now player related.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_ConclaveChallenges">
+            <summary>
+            Current conclave challenges.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_PersistentEnemies">
+            <summary>
+            Persistent Enemies.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_EarthCycle">
+            <summary>
+            Current Earth Cycle Data.
+            </summary>
+        </member>
+        <member name="P:WarframeNET.WorldState.WS_CetusCycle">
+            <summary>
+            Current Cetus Cycle Data.
+            </summary>
+        </member>
+    </members>
+</doc>

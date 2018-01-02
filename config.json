@@ -1,0 +1,1160 @@
+{
+  "Settings":
+  {
+    "PopUpInGame": "Unchecked",
+    "PopUpOutOfGame": "Checked",
+    "SpeakInGame": "Checked",
+    "SpeakOutOfGame": "Unchecked",
+    "WarningTimeAllowed": true,
+    "WarningTimeAmount": 10.0,
+    "DailyResets": "Checked",
+    "MissionResets": "Checked",
+    "CetusDayNotifications": "Checked",
+    "CetusNightNotifications": "Checked",
+    "EarthDayNotifications": "Unchecked",
+    "EarthNightNotifications": "Unchecked",
+    "CreditsInterest": 2,
+    "CreditsAmount": 12500.0,
+    "CreditsTediousTag": "Credits",
+    "EndoInterest": 2,
+    "EndoAmount": 150.0,
+    "EndoTediousTag": "Endo",
+    "CustomSearch": "Comma separated reward names - supports exact names, wildcards, and regular expressions."
+  },
+  "Entries":
+  [
+    {
+      "EntryType": "Planet",
+      "EntryName": "Mercury",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Venus",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Earth",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Lua",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Mars",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Phobos",
+	  "EntryPronunciation": "Pho-bose",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Ceres",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Jupiter",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Europa",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Saturn",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Uranus",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Neptune",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Pluto",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Sedna",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Eris",
+      "EntryPrefix": "on",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Void",
+      "EntryPrefix": "in the",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Planet",
+      "EntryName": "Kuva Fortress",
+      "EntryPronunciation": "Coo-vah Fortress",
+      "EntryPrefix": "in the",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Alloy Plate",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Argon Crystal",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Circuits",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Control Module",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Detonite Injector",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Ferrite",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Fieldron",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Gallium",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Kavat Genetic Code",
+      "EntryPronunciation": "Kuhvaat Genetic Code",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Morphics",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Mutagen Mass",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Mutalist Alad V Nav Coordinate",
+      "EntryPronunciation": "Mutalist Alad V Navv Coordinate",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Neural Sensors",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Nano Spores",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Neurodes",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Nitain Extract",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Orokin Cell",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Oxium",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Polymer Bundle",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Plastids",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Rubedo",
+      "EntryPronunciation": "Rubehdoh",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Salvage",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Synthula",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Tellurium",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
+      "EntryName": "Void Traces",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Brief Respite",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Corrosive Projection",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Dead Eye",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Emp Aura",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Empowered Blades",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Enemy Radar",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Energy Siphon",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Growing Power",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Infested Impedance",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Loot Detector",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Physique",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Pistol Amp",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Pistol Scavenger",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Rejuvenation",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Rifle Amp",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Rifle Scavenger",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Shield Disruption",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Shotgun Amp",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Shotgun Scavenger",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Sniper Scavenger",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Speed Holster",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Sprint Boost",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Stand United",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Steel Charge",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Aura",
+      "EntryName": "Toxin Resistance",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Accelerated Blast",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Animal Instinct",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Armored Agility",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Blaze",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Chilling Reload",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Constitution",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Drifting Contact",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Focus Energy",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Fortitude",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Hammer Shot",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Ice Storm",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Lethal Torrent",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Rending Strike",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Seeking Fury",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Shred",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Streamlined Form",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Stunning Speed",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Vigor",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Mod",
+      "EntryName": "Wildfire",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Ceramic Dagger",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Dark Dagger",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Dark Sword",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Exilus Adapter",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Forma",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Glaive",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Heat Dagger",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Heat Sword",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Jaw Sword",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Orokin Catalyst",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Orokin Reactor",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Pangolin Sword",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Plasma Sword",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Vauban Chassis",
+      "EntryPronunciation": "Voh-bohn Chassis",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Vauban Neuroptics",
+      "EntryPronunciation": "Voh-bohn Neuroptics",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Blueprint",
+      "EntryName": "Vauban Systems",
+      "EntryPronunciation": "Voh-bohn Systems",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Ash Locust Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Ash Scorpion Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Atlas Shikoro Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Atlas Tartarus Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Banshee Chorus Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Banshee Reverb Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Chroma Amaru Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Chroma Drac Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Ember Backdraft Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Ember Phoenix Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Equinox Solstice Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Excalibur Avalon Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Excalibur Mordred Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Excalibur Pendragon Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Frost Aurora Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Frost Squall Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Gara Virago Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Harrow Suffragan Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Hydroid Ketos Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Hydroid Triton Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Inaros Anubis Helmet",
+      "EntryPronunciation": "Inaahroes Anubis Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Inaros Canopic Helmet",
+      "EntryPronunciation": "Inaahroes Canopic Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Ivara Loxley Helmet",
+      "EntryPronunciation": "Ihvaara Loxley Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Ivara Zirastra Helmet",
+      "EntryPronunciation": "Ihvaara Zirastra Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Limbo Aristeas Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Limbo Magrite Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Loki Enigma Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Loki Essence Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Loki Swindle Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Mag Coil Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Mag Gauss Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Mesa Longhorn Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Mesa Ovis Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Mirage Harlequin Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Mirage Trivelin Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nekros Raknis Helmet",
+      "EntryPronunciation": "Nekros Rak-niss Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nekros Shroud Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nezha Circa Helmet",
+      "EntryPronunciation": "Nehh-zha Circa Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nidus Prion Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nova Flux Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nova Quantum Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nova Slipstream Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nyx Menticide Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Nyx Vespa Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Oberon Markhor Helmet",
+      "EntryPronunciation": "Oberon Markhorr Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Oberon Oryx Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Octavia Cadenza Helmet",
+      "EntryPrefix": "an",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Rhino Thrak Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Rhino Vanguard Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Saryn Chlora Helmet",
+      "EntryPronunciation": "Sarinn Chlora Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Saryn Hemlock Helmet",
+      "EntryPronunciation": "Sarinn Hemlock Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Titania Aurai Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Trinity Aura Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Trinity Meridian Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Valkyr Bastet Helmet",
+      "EntryPronunciation": "Valkeer Basttet Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Valkyr Kara Helmet",
+      "EntryPronunciation": "Valkeer Kara Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Vauban Armistice Helmet",
+      "EntryPronunciation": "Voh-bohn Armistice Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Vauban Esprit Helmet",
+      "EntryPronunciation": "Voh-bohn Esprit Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Vauban Gambit Helmet",
+      "EntryPronunciation": "Voh-bohn Gambit Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Volt Pulse Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Volt Storm Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Wukong Dasheng Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Zephyr Cierzo Helmet",
+      "EntryPronunciation": "Zephyr See-err-tzo Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
+      "EntryName": "Zephyr Tengu Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Dera Vandal",
+      "EntryDisplay": "Dera Vandal Blueprint",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Dera Vandal Barrel",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Dera Vandal Receiver",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Dera Vandal Stock",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Karak Wraith",
+      "EntryDisplay": "Karak Wraith Blueprint",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Karak Wraith Barrel",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Karak Wraith Receiver",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Karak Wraith Stock",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Latron Wraith",
+      "EntryDisplay": "Latron Wraith Blueprint",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Latron Wraith Barrel",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Latron Wraith Receiver",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Latron Wraith Stock",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Sheev",
+      "EntryDisplay": "Sheev Blueprint",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Sheev Blade",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Sheev Heatsink",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Sheev Hilt",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Snipetron Vandal",
+      "EntryDisplay": "Snipetron Vandal Blueprint",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Snipetron Vandal Barrel",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Snipetron Vandal Receiver",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Snipetron Vandal Stock",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Strun Wraith",
+      "EntryDisplay": "Strun Wraith Blueprint",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Strun Wraith Barrel",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Strun Wraith Receiver",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Strun Wraith Stock",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Twin Vipers Wraith",
+      "EntryDisplay": "Twin Vipers Wraith Blueprint",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Twin Vipers Wraith Barrels",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Twin Vipers Wraith Receivers",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Weapon",
+      "EntryName": "Twin Vipers Wraith Link",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Skin",
+      "EntryName": "Scindo Manticore Skin",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Skin",
+      "EntryName": "Dagger Axe Skin",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Skin",
+      "EntryName": "Fragor Brokk Skin",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Other",
+      "EntryName": "Kubrow Egg",
+      "EntryInterest": 1
+    }
+  ],
+  "TediousMissions":
+  {
+    "Default":
+    [
+      "Defense",
+      "Survival",
+      "Excavation",
+      "Interception",
+      "Evacuation",
+      "Dark Sector"
+    ],
+    "Endo":
+    [
+      "Hive",
+      "Assault",
+      "Mobile Defense",
+      "Hijack",
+      "Spy",
+      "Defense",
+      "Survival",
+      "Excavation",
+      "Interception",
+      "Evacuation",
+      "Dark Sector",
+      "Invasion",
+      "Rathuum",
+      "Conclave"
+    ],
+    "Credits":
+    [
+      "Extermination",
+      "Sabotage",
+      "Assassination",
+      "Hive",
+      "Assault",
+      "Mobile Defense",
+      "Hijack",
+      "Spy",
+      "Defense",
+      "Survival",
+      "Excavation",
+      "Interception",
+      "Evacuation",
+      "Dark Sector",
+      "Invasion",
+      "Rathuum",
+      "Conclave"
+    ]
+  },
+  "Pluralizations":
+  {
+    "endo": "endo",
+    "oxium": "oxium",
+    "forma": "formae",
+    "tellurium": "tellurium",
+    "rubedo": "rubedo",
+    "synthula": "synthulae",
+    "salvage": "salvage",
+    "gallium": "gallium",
+    "ferrite": "ferrite",
+    "fieldron": "fieldron",
+    "nitain extract": "nitain extract"
+  }
+}
