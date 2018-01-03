@@ -68,6 +68,14 @@ namespace VoxLotus
         [JsonProperty(PropertyName = "EarthNightNotifications", DefaultValueHandling = DefaultValueHandling.Populate)]
         public CheckState EarthNightNotifications = CheckState.Unchecked;
 
+        [DefaultValue(CheckState.Unchecked)]
+        [JsonProperty(PropertyName = "UndefinedInterest", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public CheckState UndefinedInterest = CheckState.Unchecked;
+
+        [DefaultValue(defaultTag)]
+        [JsonProperty(PropertyName = "UndefinedTediousTag", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public string UndefinedTediousTag = defaultTag;
+
         [DefaultValue(CheckState.Indeterminate)]
         [JsonProperty(PropertyName = "CreditsInterest", DefaultValueHandling = DefaultValueHandling.Populate)]
         public CheckState CreditsInterest = CheckState.Indeterminate;
@@ -77,7 +85,7 @@ namespace VoxLotus
         public decimal CreditsAmount = 12500;
 
         [DefaultValue(defaultTag)]
-        [JsonProperty(PropertyName = "CreditsTediousTag", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [JsonProperty(PropertyName = "CreditsTediousTag", DefaultValueHandling = DefaultValueHandling.Populate)]
         public string CreditsTediousTag = defaultTag;
 
         [DefaultValue(CheckState.Indeterminate)]
@@ -89,7 +97,7 @@ namespace VoxLotus
         public decimal EndoAmount = 150;
 
         [DefaultValue(defaultTag)]
-        [JsonProperty(PropertyName = "EndoTediousTag", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [JsonProperty(PropertyName = "EndoTediousTag", DefaultValueHandling = DefaultValueHandling.Populate)]
         public string EndoTediousTag = defaultTag;
 
         [DefaultValue(DefaultCustomSearch)]

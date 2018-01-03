@@ -112,6 +112,8 @@ namespace VoxLotus
             earthDayBox.CheckState = ConfigurationManager.Instance.Settings.EarthDayNotifications;
             earthNightBox.CheckState = ConfigurationManager.Instance.Settings.EarthNightNotifications;
 
+            undefinedCheckbox.CheckState = ConfigurationManager.Instance.Settings.UndefinedInterest;
+
             creditsCheckbox.CheckState = ConfigurationManager.Instance.Settings.CreditsInterest;
             creditAmount.Value = ConfigurationManager.Instance.Settings.CreditsAmount;
 
@@ -149,6 +151,8 @@ namespace VoxLotus
             ConfigurationManager.Instance.Settings.CetusNightNotifications = cetusNightBox.CheckState;
             ConfigurationManager.Instance.Settings.EarthDayNotifications = earthDayBox.CheckState;
             ConfigurationManager.Instance.Settings.EarthNightNotifications = earthNightBox.CheckState;
+
+            ConfigurationManager.Instance.Settings.UndefinedInterest = undefinedCheckbox.CheckState;
 
             ConfigurationManager.Instance.Settings.CreditsInterest = creditsCheckbox.CheckState;
             ConfigurationManager.Instance.Settings.CreditsAmount = creditAmount.Value;

@@ -54,10 +54,10 @@ namespace VoxLotus
             this.cetusDayBox = new System.Windows.Forms.CheckBox();
             this.earthNightBox = new System.Windows.Forms.CheckBox();
             this.earthDayBox = new System.Windows.Forms.CheckBox();
-            this.activeEvents = new WarframeListBox();
+            this.activeEvents = new VoxLotus.Controls.WarframeListBox();
             this.logTab = new System.Windows.Forms.TabPage();
             this.clearLogButton = new System.Windows.Forms.Button();
-            this.loggedEvents = new WarframeListBox();
+            this.loggedEvents = new VoxLotus.Controls.WarframeListBox();
             this.planetTab = new System.Windows.Forms.TabPage();
             this.resourcesTab = new System.Windows.Forms.TabPage();
             this.auraTab = new System.Windows.Forms.TabPage();
@@ -73,6 +73,7 @@ namespace VoxLotus
             this.endoCheckbox = new System.Windows.Forms.CheckBox();
             this.creditsCheckbox = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.undefinedCheckbox = new System.Windows.Forms.CheckBox();
             this.Overview.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.logTab.SuspendLayout();
@@ -512,6 +513,7 @@ namespace VoxLotus
             // otherTab
             // 
             this.otherTab.BackColor = System.Drawing.SystemColors.Control;
+            this.otherTab.Controls.Add(this.undefinedCheckbox);
             this.otherTab.Controls.Add(this.customSearchBox);
             this.otherTab.Controls.Add(this.endoAmount);
             this.otherTab.Controls.Add(this.creditAmount);
@@ -527,11 +529,11 @@ namespace VoxLotus
             // customSearchBox
             // 
             this.customSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.customSearchBox.Location = new System.Drawing.Point(6, 298);
+            this.customSearchBox.Location = new System.Drawing.Point(6, 276);
             this.customSearchBox.Multiline = true;
             this.customSearchBox.Name = "customSearchBox";
             this.customSearchBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.customSearchBox.Size = new System.Drawing.Size(352, 45);
+            this.customSearchBox.Size = new System.Drawing.Size(352, 67);
             this.customSearchBox.TabIndex = 2;
             this.customSearchBox.TextChanged += new System.EventHandler(this.SettingsChanged);
             this.customSearchBox.Enter += new System.EventHandler(this.Specifics_Enter);
@@ -565,12 +567,12 @@ namespace VoxLotus
             // 
             // endoCheckbox
             // 
-            this.endoCheckbox.AutoSize = true;
-            this.endoCheckbox.Location = new System.Drawing.Point(388, 324);
+            this.endoCheckbox.Location = new System.Drawing.Point(375, 324);
             this.endoCheckbox.Name = "endoCheckbox";
-            this.endoCheckbox.Size = new System.Drawing.Size(91, 17);
+            this.endoCheckbox.Size = new System.Drawing.Size(104, 17);
             this.endoCheckbox.TabIndex = 0;
-            this.endoCheckbox.Text = "Endo: at least";
+            this.endoCheckbox.Text = "Endo: At Least";
+            this.endoCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.endoCheckbox.ThreeState = true;
             this.toolTip1.SetToolTip(this.endoCheckbox, "Checked: Always Notify, Unchecked: Never notify, Dotted: Notify if mission is qui" +
         "ck and easy.");
@@ -579,17 +581,30 @@ namespace VoxLotus
             // 
             // creditsCheckbox
             // 
-            this.creditsCheckbox.AutoSize = true;
-            this.creditsCheckbox.Location = new System.Drawing.Point(381, 300);
+            this.creditsCheckbox.Location = new System.Drawing.Point(375, 300);
             this.creditsCheckbox.Name = "creditsCheckbox";
-            this.creditsCheckbox.Size = new System.Drawing.Size(98, 17);
+            this.creditsCheckbox.Size = new System.Drawing.Size(104, 17);
             this.creditsCheckbox.TabIndex = 0;
-            this.creditsCheckbox.Text = "Credits: at least";
+            this.creditsCheckbox.Text = "Credits: At Least";
+            this.creditsCheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.creditsCheckbox.ThreeState = true;
             this.toolTip1.SetToolTip(this.creditsCheckbox, "Checked: Always Notify, Unchecked: Never notify, Dotted: Notify if mission is qui" +
         "ck and easy.");
             this.creditsCheckbox.UseVisualStyleBackColor = true;
             this.creditsCheckbox.CheckStateChanged += new System.EventHandler(this.SettingsChanged);
+            // 
+            // undefinedCheckbox
+            // 
+            this.undefinedCheckbox.Location = new System.Drawing.Point(375, 276);
+            this.undefinedCheckbox.Name = "undefinedCheckbox";
+            this.undefinedCheckbox.Size = new System.Drawing.Size(167, 17);
+            this.undefinedCheckbox.TabIndex = 3;
+            this.undefinedCheckbox.Text = "Undefined Items";
+            this.undefinedCheckbox.ThreeState = true;
+            this.toolTip1.SetToolTip(this.undefinedCheckbox, "Checked: Always Notify, Unchecked: Never notify, Dotted: Notify if mission is qui" +
+        "ck and easy.");
+            this.undefinedCheckbox.UseVisualStyleBackColor = true;
+            this.undefinedCheckbox.CheckStateChanged += new System.EventHandler(this.SettingsChanged);
             // 
             // Form1
             // 
@@ -660,6 +675,7 @@ namespace VoxLotus
         private System.Windows.Forms.Label missionTimerLabel;
         private System.Windows.Forms.Label dailyTimerLabel;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox undefinedCheckbox;
     }
 }
 

@@ -13,6 +13,8 @@
     "CetusNightNotifications": "Checked",
     "EarthDayNotifications": "Unchecked",
     "EarthNightNotifications": "Unchecked",
+    "UndefinedInterest": 0,
+    "UndefinedTediousTag": "Default",
     "CreditsInterest": 2,
     "CreditsAmount": 12500.0,
     "CreditsTediousTag": "Credits",
