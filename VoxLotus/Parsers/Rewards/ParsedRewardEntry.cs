@@ -5,20 +5,29 @@ namespace VoxLotus.Parsers
 {
     public abstract class ParsedRewardEntry : ParsedRewardItem
     {
-        public ConfigurationEntry entry { get; }
+        public string Name { get; }
+        public string Display { get; }
+
+        public ConfigurationEntry Entry { get; }
+        public bool Undefined { get; }
 
         protected const string blueprintString = " Blueprint";
 
-        protected override CheckState Interest => entry?.EntryCheckState ?? CheckState.Unchecked;
-
-        protected override string TediousTag => entry != null ? entry.TediousTag : string.Empty;
+        protected override CheckState Interest => Undefined ? ConfigurationManager.Instance.Settings.UndefinedInterest : Entry.EntryCheckState;
+        protected override string TediousTag => Undefined ? ConfigurationManager.Instance.Settings.UndefinedTediousTag : Entry.TediousTag;
 
         protected ParsedRewardEntry(string name)
         {
-            name = StripBlueprint(name);
+            Display = name;
+            Name = StripBlueprint(Display);
 
-            if (ConfigurationManager.Instance.HasEntryName(name))
-                entry = ConfigurationManager.Instance.GetEntryByName(name);
+            if (ConfigurationManager.Instance.HasEntryName(Name))
+            {
+                Entry = ConfigurationManager.Instance.GetEntryByName(Name);
+                Undefined = false;
+            }
+            else
+                Undefined = true;
         }
 
         protected string StripBlueprint(string name)
@@ -27,11 +36,6 @@ namespace VoxLotus.Parsers
                 name = name.Substring(0, name.LastIndexOf(blueprintString, StringComparison.Ordinal));
 
             return name;
-        }
-
-        public override bool Relevant(string missionType)
-        {
-            return entry != null && base.Relevant(missionType);
         }
     }
 }

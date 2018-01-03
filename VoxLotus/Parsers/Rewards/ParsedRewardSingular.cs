@@ -6,7 +6,10 @@
 
         public override string Description(bool spoken = false)
         {
-            return entry != null ? Utilities.ItemDescription(spoken ? entry.GetPronunciation() : entry.GetDisplay(), entry.EntryPrefix) : string.Empty;
+            if (Undefined)
+                return Utilities.ItemDescription(Display, Utilities.GuessIndefiniteArticle(Display));
+
+            return Utilities.ItemDescription(spoken ? Entry.GetPronunciation() : Entry.GetDisplay(), Entry.EntryPrefix);
         }
     }
 }

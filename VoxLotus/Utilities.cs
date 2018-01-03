@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace VoxLotus
@@ -114,6 +115,57 @@ namespace VoxLotus
                 return "Now";
 
             return string.Join(", ", timeStrings.Take(timeStrings.Count - 1)) + (timeStrings.Count <= 1 ? "" : " and ") + timeStrings.LastOrDefault();
+        }
+
+        public static string GuessIndefiniteArticle(string noun)
+        {
+            // Originally from https://stackoverflow.com/a/8044744
+            string word;
+            Match m = Regex.Match(noun, @"\w+");
+
+            if (m.Success)
+                word = m.Groups[0].Value;
+            else
+                return "an";
+
+            string wordi = word.ToLower();
+
+            foreach (string anword in new[] { "euler", "heir", "honest", "hono" })
+            {
+                if (wordi.StartsWith(anword))
+                    return "an";
+            }
+
+            if (wordi.StartsWith("hour") && !wordi.StartsWith("houri"))
+                return "an";
+
+            char[] charList = { 'a', 'e', 'd', 'h', 'i', 'l', 'm', 'n', 'o', 'r', 's', 'x' };
+
+            if (wordi.Length == 1)
+                return wordi.IndexOfAny(charList) == 0 ? "an" : "a";
+
+            if (Regex.Match(word, "(?!FJO|[HLMNS]Y.|RY[EO]|SQU|(F[LR]?|[HL]|MN?|N|RH?|S[CHKLMNPTVW]?|X(YL)?)[AEIOU])[FHLMNRSX][A-Z]").Success)
+                return "an";
+
+            foreach (string regex in new[] { "^e[uw]", "^onc?e\b", "^uni([^nmd]|mo)", "^u[bcfhjkqrst][aeiou]" })
+            {
+                if (Regex.IsMatch(wordi, regex))
+                    return "a";
+            }
+
+            if (Regex.IsMatch(word, "^U[NK][AIEO]"))
+                return "a";
+
+            if (word == word.ToUpper())
+                return wordi.IndexOfAny(charList) == 0 ? "an" : "a";
+
+            if (wordi.IndexOfAny(new[] { 'a', 'e', 'i', 'o', 'u' }) == 0)
+                return "an";
+
+            if (Regex.IsMatch(wordi, "^y(b[lor]|cl[ea]|fere|gg|p[ios]|rou|tt)"))
+                return "an";
+
+            return "a";
         }
     }
 }

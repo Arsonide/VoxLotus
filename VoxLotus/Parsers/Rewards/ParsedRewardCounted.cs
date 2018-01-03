@@ -18,7 +18,10 @@ namespace VoxLotus.Parsers
 
         public override string Description(bool spoken = false)
         {
-            return entry != null ? Utilities.ItemDescription(spoken ? entry.GetPronunciation() : entry.GetDisplay(), entry.EntryPrefix, amount) : string.Empty;
+            if (Undefined)
+                return Utilities.ItemDescription(Display, Utilities.GuessIndefiniteArticle(Display), amount);
+
+            return Utilities.ItemDescription(spoken ? Entry.GetPronunciation() : Entry.GetDisplay(), Entry.EntryPrefix, amount);
         }
     }
 }
