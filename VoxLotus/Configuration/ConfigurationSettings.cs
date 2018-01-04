@@ -43,6 +43,10 @@ namespace VoxLotus
         public bool CyclicBriefingsAllowed = true;
 
         [DefaultValue(true)]
+        [JsonProperty(PropertyName = "ExtractorBriefingsAllowed", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public bool ExtractorBriefingsAllowed = true;
+
+        [DefaultValue(true)]
         [JsonProperty(PropertyName = "WarningTimeAllowed", DefaultValueHandling = DefaultValueHandling.Populate)]
         public bool WarningTimeAllowed = true;
 

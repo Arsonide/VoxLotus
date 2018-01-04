@@ -8,6 +8,7 @@
     "OperationBriefingsAllowed": true,
     "ResetBriefingsAllowed": false,
     "CyclicBriefingsAllowed": true,
+    "ExtractorBriefingsAllowed": true,
     "WarningTimeAllowed": true,
     "WarningTimeAmount": 10.0,
     "DailyResets": "Checked",
