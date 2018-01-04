@@ -58,7 +58,7 @@ namespace VoxLotus.Parsers
 
         protected void Broadcast(string message, bool popup = true, bool speak = true)
         {
-            if (string.IsNullOrWhiteSpace(message))
+            if (string.IsNullOrEmpty(message))
                 return;
 
             if (popup)
@@ -230,7 +230,28 @@ namespace VoxLotus.Parsers
             return CyclicBroadcastType.None;
         }
 
-        protected string GetCyclicBroadcastString(TickerState state, CyclicBroadcastType broadcastType, string location)
+        protected string CyclicBroadcastStartString(TickerState state, CyclicBroadcastType broadcastType, string location)
+        {
+            if (!ConfigurationManager.Instance.Settings.CyclicBriefingsAllowed || broadcastType == CyclicBroadcastType.None)
+                return null;
+
+            // For the briefing, context doesn't matter much. It gets weird if you try to make these in the context of only day or only night.
+            switch (state)
+            {
+                case TickerState.Enabled:
+                    return $"It is day time {location}.";
+                case TickerState.Disabled:
+                    return $"It is night time {location}.";
+                case TickerState.Disabling:
+                    return $"It will be night time {location} soon.";
+                case TickerState.Enabling:
+                    return $"It will be day time {location} soon.";
+                default:
+                    return null;
+            }
+        }
+
+        protected string CyclicBroadcastChangeString(TickerState state, CyclicBroadcastType broadcastType, string location)
         {
             switch (broadcastType)
             {
@@ -238,61 +259,67 @@ namespace VoxLotus.Parsers
                     switch (state)
                     {
                         case TickerState.Enabled:
-                            return $"It is now day time {location}.";
+                            return $"Day time is starting {location}.";
                         case TickerState.Disabled:
-                            return $"It is now night time {location}.";
+                            return $"Night time is starting {location}.";
                         case TickerState.Disabling:
-                            return $"It will soon be night time {location}.";
+                            return $"Night time is starting {location} soon.";
                         case TickerState.Enabling:
-                            return $"It will soon be day time {location}.";
+                            return $"Day time is starting {location} soon.";
                         default:
-                            return string.Empty;
+                            return null;
                     }
                 case CyclicBroadcastType.OnlyEnabled:
                     switch (state)
                     {
                         case TickerState.Enabled:
-                            return $"It is now day time {location}.";
+                            return $"Day time is starting {location}.";
                         case TickerState.Disabled:
-                            return $"It is no longer day time {location}.";
+                            return $"Day time is ending {location}.";
                         case TickerState.Disabling:
-                            return $"It will soon no longer be day time {location}.";
+                            return $"Day time is ending {location} soon.";
                         case TickerState.Enabling:
-                            return $"It will soon be day time {location}.";
+                            return $"Day time is starting {location} soon.";
                         default:
-                            return string.Empty;
+                            return null;
                     }
                 case CyclicBroadcastType.OnlyDisabled:
                     switch (state)
                     {
                         case TickerState.Enabled:
-                            return $"It is no longer night time {location}.";
+                            return $"Night time is ending {location}.";
                         case TickerState.Disabled:
-                            return $"It is now night time {location}.";
+                            return $"Night time is starting {location}.";
                         case TickerState.Disabling:
-                            return $"It will soon be night time {location}.";
+                            return $"Night time is starting {location} soon.";
                         case TickerState.Enabling:
-                            return $"It will soon no longer be night time {location}.";
+                            return $"Night time is ending {location} soon.";
                         default:
-                            return string.Empty;
+                            return null;
                     }
                 default:
-                    return string.Empty;
+                    return null;
             }
         }
 
         protected void OnCetusState(TickerState oldState, TickerState newState)
         {
+            string location = "in Cetus";
             CyclicBroadcastType type = GetCyclicBroadcastType(ConfigurationManager.Instance.Settings.CetusDayNotifications, ConfigurationManager.Instance.Settings.CetusNightNotifications);
-            string broadcast = GetCyclicBroadcastString(newState, type, "in Cetus");
-            Broadcast(broadcast);
+            string broadcast = oldState == TickerState.Uninitialized ? CyclicBroadcastStartString(newState, type, location) : CyclicBroadcastChangeString(newState, type, location);
+
+            if (!string.IsNullOrEmpty(broadcast))
+                Broadcast(broadcast);
         }
 
         protected void OnEarthState(TickerState oldState, TickerState newState)
         {
+            string location = "on Earth";
             CyclicBroadcastType type = GetCyclicBroadcastType(ConfigurationManager.Instance.Settings.EarthDayNotifications, ConfigurationManager.Instance.Settings.EarthNightNotifications);
-            string broadcast = GetCyclicBroadcastString(newState, type, "on Earth");
-            Broadcast(broadcast);
+            string broadcast = oldState == TickerState.Uninitialized ? CyclicBroadcastStartString(newState, type, location) : CyclicBroadcastChangeString(newState, type, location);
+
+            if (!string.IsNullOrEmpty(broadcast))
+                Broadcast(broadcast);
         }
 
         protected void TickCetus(WorldState state)
