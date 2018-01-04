@@ -31,6 +31,18 @@ namespace VoxLotus
         public CheckState SpeakOutOfGame = CheckState.Unchecked;
 
         [DefaultValue(true)]
+        [JsonProperty(PropertyName = "OperationBriefingsAllowed", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public bool OperationBriefingsAllowed = true;
+
+        [DefaultValue(false)]
+        [JsonProperty(PropertyName = "ResetBriefingsAllowed", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public bool ResetBriefingsAllowed = false;
+
+        [DefaultValue(true)]
+        [JsonProperty(PropertyName = "CyclicBriefingsAllowed", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public bool CyclicBriefingsAllowed = true;
+
+        [DefaultValue(true)]
         [JsonProperty(PropertyName = "WarningTimeAllowed", DefaultValueHandling = DefaultValueHandling.Populate)]
         public bool WarningTimeAllowed = true;
 
