@@ -24,39 +24,39 @@ namespace VoxLotus
             }
         }
 
-        protected static string InstanceJson => JsonConvert.SerializeObject(_instance, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
         public static void LoadInstance()
         {
-            string loadedFile;
+            string loadedFile = string.Empty;
 
             try
             {
                 loadedFile = File.ReadAllText($"{Environment.CurrentDirectory}\\{file}");
                 _instance = JsonConvert.DeserializeObject<ConfigurationManager>(loadedFile);
+
+                if (_instance == null)
+                    throw new InvalidOperationException();
             }
             catch
             {
-                loadedFile = string.Empty;
                 _instance = new ConfigurationManager();
             }
 
-            SaveInstanceIfChanged(loadedFile);
+            SaveInstance(loadedFile);
 
             _instance.Initialize();
         }
 
-        public static void SaveInstance()
+        public static void SaveInstance(string original = null)
         {
-            File.WriteAllText($"{Environment.CurrentDirectory}\\{file}", InstanceJson);
-        }
+            if (_instance == null)
+                return;
 
-        protected static void SaveInstanceIfChanged(string original)
-        {
-            string json = InstanceJson;
+            string json = JsonConvert.SerializeObject(_instance, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
-            if (json != original)
-                File.WriteAllText($"{Environment.CurrentDirectory}\\{file}", json);
+            if (original != null && json == original)
+                return;
+
+            File.WriteAllText($"{Environment.CurrentDirectory}\\{file}", json);
         }
 
         #endregion
