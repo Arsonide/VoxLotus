@@ -201,6 +201,9 @@ namespace VoxLotus
 
         protected void OnOperationsInitialized(List<ParsedOperation> operations)
         {
+            if (!ConfigurationManager.Instance.Settings.OperationBriefingsAllowed)
+                return;
+
             int relevantOperations = 0;
 
             foreach (ParsedOperation operation in operations)
@@ -238,12 +241,12 @@ namespace VoxLotus
             bool distillingActive = ConfigurationManager.Instance.Settings.DistillingExtractorsExpiry != 0;
 
             if (titanActive)
-                world.TitanExtractor.ResumeExtractor(ConfigurationManager.Instance.Settings.TitanExtractorsExpiry);
+                world.TitanExtractor.ResumeExtractor(ConfigurationManager.Instance.Settings.TitanExtractorsExpiry, ConfigurationManager.Instance.Settings.ExtractorBriefingsAllowed);
             else
                 world.TitanExtractor.StopExtractor(false);
 
             if (distillingActive)
-                world.DistillingExtractor.ResumeExtractor(ConfigurationManager.Instance.Settings.DistillingExtractorsExpiry);
+                world.DistillingExtractor.ResumeExtractor(ConfigurationManager.Instance.Settings.DistillingExtractorsExpiry, ConfigurationManager.Instance.Settings.ExtractorBriefingsAllowed);
             else
                 world.DistillingExtractor.StopExtractor(false);
 
