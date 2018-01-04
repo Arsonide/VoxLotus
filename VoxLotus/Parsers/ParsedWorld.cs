@@ -22,6 +22,8 @@ namespace VoxLotus.Parsers
         protected TimeSpan dailyResetTime = new TimeSpan(0, 0, 0);
         protected TimeSpan missionResetTime = new TimeSpan(16, 0, 0);
 
+        protected readonly TimeSpan nightDuration = new TimeSpan(0, 50, 0);
+
         public readonly AbsoluteTicker DailyTicker = new AbsoluteTicker();
         public readonly AbsoluteTicker MissionTicker = new AbsoluteTicker();
 
@@ -48,7 +50,7 @@ namespace VoxLotus.Parsers
             TickOperations(state);
             DailyTicker.Tick();
             MissionTicker.Tick();
-            CetusTicker.Tick(state.WS_CetusCycle.isDay, state.WS_CetusCycle.expiry);
+            TickCetus(state);
             EarthTicker.Tick(state.WS_EarthCycle.isDay, state.WS_EarthCycle.expiry);
             TitanExtractor.TickExtractor();
             DistillingExtractor.TickExtractor();
@@ -282,6 +284,33 @@ namespace VoxLotus.Parsers
             CyclicBroadcastType type = GetCyclicBroadcastType(ConfigurationManager.Instance.Settings.EarthDayNotifications, ConfigurationManager.Instance.Settings.EarthNightNotifications);
             string broadcast = GetCyclicBroadcastString(state, type, "on Earth");
             Broadcast(broadcast);
+        }
+
+        protected void TickCetus(WorldState state)
+        {
+            // The original timer drifts a bit, so we'll calculate from the current bounty expiration.
+            SyndicateMission bounty = null;
+
+            foreach (SyndicateMission mission in state.WS_SyndicateMissions)
+            {
+                if (mission.Syndicate != "Ostrons")
+                    continue;
+
+                bounty = mission;
+                break;
+            }
+
+            // But we will use it if for some reason the bounties are broken.
+            if (bounty == null)
+            {
+                CetusTicker.Tick(state.WS_CetusCycle.isDay, state.WS_CetusCycle.expiry);
+                return;
+            }
+
+            DateTime nightExpiry = bounty.EndTime;
+            DateTime dayExpiry = nightExpiry - nightDuration;
+            bool isDay = dayExpiry > DateTime.UtcNow;
+            CetusTicker.Tick(isDay, isDay ? dayExpiry : nightExpiry);
         }
 
         #endregion
