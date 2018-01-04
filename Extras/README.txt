@@ -1,4 +1,4 @@
-Vox Lotus v0.1b
+﻿Vox Lotus v0.12b
 
 -- SUMMARY --
 
