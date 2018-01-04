@@ -163,30 +163,39 @@ namespace VoxLotus.Parsers
 
         #region Absolute Tickers
 
-        protected void AbsoluteResetBroadcast(TickerState state, string ticker, CheckState checkState)
+        protected void AbsoluteResetBroadcast(Ticker ticker, TickerState oldState, TickerState newState, string tickerDescription, CheckState tickerChecked)
         {
-            if (checkState == CheckState.Unchecked)
+            if (tickerChecked == CheckState.Unchecked)
                 return;
 
             string notification = null;
 
-            switch (state)
+            if (oldState == TickerState.Uninitialized)
             {
-                case TickerState.Disabling:
-                    notification = $"{ticker} will be resetting soon.";
-                    break;
-                case TickerState.Disabled:
-                    notification = $"{ticker} have reset for the day.";
+                if (ConfigurationManager.Instance.Settings.ResetBriefingsAllowed)
+                {
+                    string remainingTime = newState == TickerState.Disabling ? "soon" : $"in {Utilities.ReadableTimeSpan(ticker.TimeLeft, false)}";
+                    notification = $"{tickerDescription} will be resetting {remainingTime}.";
+                }
+            }
+            else
+            {
+                if (newState == TickerState.Disabled)
+                {
+                    notification = $"{tickerDescription} have reset for the day.";
                     OnLogMessage?.Invoke("Reset", notification);
-                    break;
+                }
+                else if (newState == TickerState.Disabling)
+                    notification = $"{tickerDescription} will be resetting soon.";
             }
 
-            Broadcast(notification);
+            if (!string.IsNullOrEmpty(notification))
+                Broadcast(notification);
         }
 
         protected void OnDailyState(TickerState oldState, TickerState newState)
         {
-            AbsoluteResetBroadcast(newState, "Daily rewards and faction standing limits", ConfigurationManager.Instance.Settings.DailyResets);
+            AbsoluteResetBroadcast(DailyTicker, oldState, newState, "Daily rewards and faction standing limits", ConfigurationManager.Instance.Settings.DailyResets);
 
             if (newState == TickerState.Disabled)
                 DailyTicker.ResetToTimeSpecific(dailyResetTime);
@@ -194,7 +203,7 @@ namespace VoxLotus.Parsers
 
         protected void OnMissionState(TickerState oldState, TickerState newState)
         {
-            AbsoluteResetBroadcast(newState, "Sorties and syndicate missions", ConfigurationManager.Instance.Settings.MissionResets);
+            AbsoluteResetBroadcast(MissionTicker, oldState, newState, "Sorties and syndicate missions", ConfigurationManager.Instance.Settings.MissionResets);
 
             if (newState == TickerState.Disabled)
                 MissionTicker.ResetToTimeSpecific(missionResetTime);
