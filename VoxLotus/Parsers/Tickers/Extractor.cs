@@ -60,9 +60,9 @@ namespace VoxLotus
                 ticker.Tick();
         }
 
-        protected void OnTickerState(TickerState state)
+        protected void OnTickerState(TickerState oldState, TickerState newState)
         {
-            switch(state)
+            switch(newState)
             {
                 case TickerState.Disabling:
                     OnExtractorNotification?.Invoke($"{Name} extractors will complete their resource harvesting soon.");

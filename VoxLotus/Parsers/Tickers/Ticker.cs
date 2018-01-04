@@ -4,7 +4,7 @@ namespace VoxLotus
 {
     public abstract class Ticker
     {
-        public event Action<TickerState> OnStateChanged;
+        public event Action<TickerState, TickerState> OnStateChanged;
         public TickerState State { get; protected set; }
         public DateTime Expiry { get; protected set; }
 
@@ -18,8 +18,9 @@ namespace VoxLotus
             if (State == newState)
                 return;
 
+            TickerState oldState = State;
             State = newState;
-            OnStateChanged?.Invoke(State);
+            OnStateChanged?.Invoke(oldState, newState);
         }
     }
 }

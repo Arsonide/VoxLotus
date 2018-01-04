@@ -184,19 +184,19 @@ namespace VoxLotus.Parsers
             Broadcast(notification);
         }
 
-        protected void OnDailyState(TickerState state)
+        protected void OnDailyState(TickerState oldState, TickerState newState)
         {
-            AbsoluteResetBroadcast(state, "Daily rewards and faction standing limits", ConfigurationManager.Instance.Settings.DailyResets);
+            AbsoluteResetBroadcast(newState, "Daily rewards and faction standing limits", ConfigurationManager.Instance.Settings.DailyResets);
 
-            if (state == TickerState.Disabled)
+            if (newState == TickerState.Disabled)
                 DailyTicker.ResetToTimeSpecific(dailyResetTime);
         }
 
-        protected void OnMissionState(TickerState state)
+        protected void OnMissionState(TickerState oldState, TickerState newState)
         {
-            AbsoluteResetBroadcast(state, "Sorties and syndicate missions", ConfigurationManager.Instance.Settings.MissionResets);
+            AbsoluteResetBroadcast(newState, "Sorties and syndicate missions", ConfigurationManager.Instance.Settings.MissionResets);
 
-            if (state == TickerState.Disabled)
+            if (newState == TickerState.Disabled)
                 MissionTicker.ResetToTimeSpecific(missionResetTime);
         }
 
