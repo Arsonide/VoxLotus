@@ -228,6 +228,77 @@ namespace VoxLotus
 
         #endregion
 
+        #region Context Menu
+
+        private void SetCurrentTabPageCheckboxes(CheckState state)
+        {
+            TabPage page = Overview?.SelectedTab;
+
+            if (page == null)
+                return;
+
+            eventFreeze = true;
+
+            foreach (Control control in page.Controls)
+            {
+                CheckBox checkBox = control as CheckBox;
+
+                if (checkBox == null)
+                    continue;
+
+                if (!checkBox.ThreeState && state == CheckState.Indeterminate)
+                {
+                    checkBox.CheckState = CheckState.Unchecked;
+                    continue;
+                }
+
+                checkBox.CheckState = state;
+            }
+
+            eventFreeze = false;
+            WriteSettings();
+        }
+
+        private void Overview_MouseUp(object sender, MouseEventArgs mouseEvent)
+        {
+            if (mouseEvent.Button != MouseButtons.Right)
+                return;
+
+            for (int i = 0; i < Overview.TabCount; i++)
+            {
+                Rectangle tabRectangle = Overview.GetTabRect(i);
+
+                if (!tabRectangle.Contains(mouseEvent.Location))
+                    continue;
+
+                if (Overview.SelectedIndex != i)
+                    continue;
+
+                checkUncheckDotStrip.Show(Overview, mouseEvent.Location);
+                break;
+            }
+        }
+
+        private void CheckStripItem_MouseUp(object sender, MouseEventArgs mouseEvent)
+        {
+            if (mouseEvent.Button == MouseButtons.Left)
+                SetCurrentTabPageCheckboxes(CheckState.Checked);
+        }
+
+        private void UncheckStripItem_MouseUp(object sender, MouseEventArgs mouseEvent)
+        {
+            if (mouseEvent.Button == MouseButtons.Left)
+                SetCurrentTabPageCheckboxes(CheckState.Unchecked);
+        }
+
+        private void DotStripItem_MouseUp(object sender, MouseEventArgs mouseEvent)
+        {
+            if (mouseEvent.Button == MouseButtons.Left)
+                SetCurrentTabPageCheckboxes(CheckState.Indeterminate);
+        }
+
+        #endregion
+
         #region Main Tab
 
         public bool IsMainTabVisible()

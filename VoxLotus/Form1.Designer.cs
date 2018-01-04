@@ -1,4 +1,5 @@
-﻿using VoxLotus.Controls;
+﻿using System.Windows.Forms;
+using VoxLotus.Controls;
 
 namespace VoxLotus
 {
@@ -67,19 +68,24 @@ namespace VoxLotus
             this.weaponsTab = new System.Windows.Forms.TabPage();
             this.skinsTab = new System.Windows.Forms.TabPage();
             this.otherTab = new System.Windows.Forms.TabPage();
+            this.undefinedCheckbox = new System.Windows.Forms.CheckBox();
             this.customSearchBox = new System.Windows.Forms.TextBox();
             this.endoAmount = new System.Windows.Forms.NumericUpDown();
             this.creditAmount = new System.Windows.Forms.NumericUpDown();
             this.endoCheckbox = new System.Windows.Forms.CheckBox();
             this.creditsCheckbox = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.undefinedCheckbox = new System.Windows.Forms.CheckBox();
+            this.checkUncheckDotStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.checkStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uncheckStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dotStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Overview.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.logTab.SuspendLayout();
             this.otherTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endoAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creditAmount)).BeginInit();
+            this.checkUncheckDotStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // Overview
@@ -100,6 +106,7 @@ namespace VoxLotus
             this.Overview.SelectedIndex = 0;
             this.Overview.Size = new System.Drawing.Size(556, 375);
             this.Overview.TabIndex = 0;
+            this.Overview.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Overview_MouseUp);
             // 
             // mainTab
             // 
@@ -526,6 +533,19 @@ namespace VoxLotus
             this.otherTab.TabIndex = 7;
             this.otherTab.Text = "Other";
             // 
+            // undefinedCheckbox
+            // 
+            this.undefinedCheckbox.Location = new System.Drawing.Point(375, 276);
+            this.undefinedCheckbox.Name = "undefinedCheckbox";
+            this.undefinedCheckbox.Size = new System.Drawing.Size(167, 17);
+            this.undefinedCheckbox.TabIndex = 3;
+            this.undefinedCheckbox.Text = "Undefined Items";
+            this.undefinedCheckbox.ThreeState = true;
+            this.toolTip1.SetToolTip(this.undefinedCheckbox, "Checked: Always Notify, Unchecked: Never notify, Dotted: Notify if mission is qui" +
+        "ck and easy.");
+            this.undefinedCheckbox.UseVisualStyleBackColor = true;
+            this.undefinedCheckbox.CheckStateChanged += new System.EventHandler(this.SettingsChanged);
+            // 
             // customSearchBox
             // 
             this.customSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
@@ -593,18 +613,35 @@ namespace VoxLotus
             this.creditsCheckbox.UseVisualStyleBackColor = true;
             this.creditsCheckbox.CheckStateChanged += new System.EventHandler(this.SettingsChanged);
             // 
-            // undefinedCheckbox
+            // checkUncheckDotStrip
             // 
-            this.undefinedCheckbox.Location = new System.Drawing.Point(375, 276);
-            this.undefinedCheckbox.Name = "undefinedCheckbox";
-            this.undefinedCheckbox.Size = new System.Drawing.Size(167, 17);
-            this.undefinedCheckbox.TabIndex = 3;
-            this.undefinedCheckbox.Text = "Undefined Items";
-            this.undefinedCheckbox.ThreeState = true;
-            this.toolTip1.SetToolTip(this.undefinedCheckbox, "Checked: Always Notify, Unchecked: Never notify, Dotted: Notify if mission is qui" +
-        "ck and easy.");
-            this.undefinedCheckbox.UseVisualStyleBackColor = true;
-            this.undefinedCheckbox.CheckStateChanged += new System.EventHandler(this.SettingsChanged);
+            this.checkUncheckDotStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkStripItem,
+            this.uncheckStripItem,
+            this.dotStripItem});
+            this.checkUncheckDotStrip.Name = "checkUncheckDotStrip";
+            this.checkUncheckDotStrip.Size = new System.Drawing.Size(153, 92);
+            // 
+            // checkStripItem
+            // 
+            this.checkStripItem.Name = "checkStripItem";
+            this.checkStripItem.Size = new System.Drawing.Size(152, 22);
+            this.checkStripItem.Text = "Check All";
+            this.checkStripItem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CheckStripItem_MouseUp);
+            // 
+            // uncheckStripItem
+            // 
+            this.uncheckStripItem.Name = "uncheckStripItem";
+            this.uncheckStripItem.Size = new System.Drawing.Size(152, 22);
+            this.uncheckStripItem.Text = "Uncheck All";
+            this.uncheckStripItem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UncheckStripItem_MouseUp);
+            // 
+            // dotStripItem
+            // 
+            this.dotStripItem.Name = "dotStripItem";
+            this.dotStripItem.Size = new System.Drawing.Size(152, 22);
+            this.dotStripItem.Text = "Dot All";
+            this.dotStripItem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DotStripItem_MouseUp);
             // 
             // Form1
             // 
@@ -628,6 +665,7 @@ namespace VoxLotus
             this.otherTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endoAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creditAmount)).EndInit();
+            this.checkUncheckDotStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -676,6 +714,10 @@ namespace VoxLotus
         private System.Windows.Forms.Label dailyTimerLabel;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox undefinedCheckbox;
+        private System.Windows.Forms.ContextMenuStrip checkUncheckDotStrip;
+        private System.Windows.Forms.ToolStripMenuItem checkStripItem;
+        private System.Windows.Forms.ToolStripMenuItem uncheckStripItem;
+        private System.Windows.Forms.ToolStripMenuItem dotStripItem;
     }
 }
 
