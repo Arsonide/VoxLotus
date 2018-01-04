@@ -272,17 +272,17 @@ namespace VoxLotus.Parsers
             }
         }
 
-        protected void OnCetusState(TickerState state)
+        protected void OnCetusState(TickerState oldState, TickerState newState)
         {
             CyclicBroadcastType type = GetCyclicBroadcastType(ConfigurationManager.Instance.Settings.CetusDayNotifications, ConfigurationManager.Instance.Settings.CetusNightNotifications);
-            string broadcast = GetCyclicBroadcastString(state, type, "in Cetus");
+            string broadcast = GetCyclicBroadcastString(newState, type, "in Cetus");
             Broadcast(broadcast);
         }
 
-        protected void OnEarthState(TickerState state)
+        protected void OnEarthState(TickerState oldState, TickerState newState)
         {
             CyclicBroadcastType type = GetCyclicBroadcastType(ConfigurationManager.Instance.Settings.EarthDayNotifications, ConfigurationManager.Instance.Settings.EarthNightNotifications);
-            string broadcast = GetCyclicBroadcastString(state, type, "on Earth");
+            string broadcast = GetCyclicBroadcastString(newState, type, "on Earth");
             Broadcast(broadcast);
         }
 
