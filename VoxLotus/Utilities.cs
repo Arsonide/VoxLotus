@@ -34,9 +34,6 @@ namespace VoxLotus
             if (!ConfigurationManager.Instance.Settings.EnableDebugLog)
                 return;
 
-            if (!File.Exists(DebugLogLocation))
-                File.Create(DebugLogLocation);
-
             using (StreamWriter writer = new StreamWriter(DebugLogLocation, true))
             {
                 writer.WriteLine($"[{DateTime.Now:g}] {line}");
