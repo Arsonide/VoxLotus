@@ -127,5 +127,9 @@ namespace VoxLotus
         [DefaultValue(0)]
         [JsonProperty(PropertyName = "DistillingExtractorsExpiry", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public long DistillingExtractorsExpiry;
+
+        [DefaultValue(false)]
+        [JsonProperty(PropertyName = "EnableDebugLog", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        public bool EnableDebugLog = false;
     }
 }

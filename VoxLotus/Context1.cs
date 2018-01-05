@@ -166,17 +166,22 @@ namespace VoxLotus
             notifyIcon.BalloonTipText = text;
             notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
             notifyIcon.ShowBalloonTip(10000);
+            Utilities.DebugLog($"[POPUP] {text}");
         }
 
         public void Log(string title, string text)
         {
             configWindow.LogMessage(title, text, false);
+            Utilities.DebugLog($"[LOG] [{title.ToUpperInvariant()}] {text}");
         }
 
         protected void Speak(string text)
         {
-            if (AllowIfGameClientRunning(ConfigurationManager.Instance.Settings.SpeakInGame != CheckState.Unchecked, ConfigurationManager.Instance.Settings.SpeakOutOfGame != CheckState.Unchecked))
-                voice.SpeakAsync(text);
+            if (!AllowIfGameClientRunning(ConfigurationManager.Instance.Settings.SpeakInGame != CheckState.Unchecked, ConfigurationManager.Instance.Settings.SpeakOutOfGame != CheckState.Unchecked))
+                return;
+
+            voice.SpeakAsync(text);
+            Utilities.DebugLog($"[SPEECH] {text}");
         }
 
         #endregion

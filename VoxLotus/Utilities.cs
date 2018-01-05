@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -19,6 +20,23 @@ namespace VoxLotus
             CultureInfo cultureInfo = new CultureInfo("en-US");
             textInfo = cultureInfo.TextInfo;
             pluralizer = PluralizationService.CreateService(cultureInfo);
+        }
+
+        public static void DebugLog(string line)
+        {
+            if (!ConfigurationManager.Instance.Settings.EnableDebugLog)
+                return;
+
+            string path = Environment.CurrentDirectory + "\\debug.log";
+
+            if (!File.Exists(path))
+                File.Create(path);
+
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine($"[{DateTime.Now:g}] {line}");
+                writer.Close();
+            }
         }
 
         #region Invocations
