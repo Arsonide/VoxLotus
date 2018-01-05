@@ -42,9 +42,7 @@ namespace VoxLotus
 
         private static void DumpException(Exception ex)
         {
-            string filePath = Environment.CurrentDirectory + "\\error.log";
-
-            using (var writer = new StreamWriter(filePath, true))
+            using (var writer = new StreamWriter(Utilities.ErrorLogLocation, true))
             {
                 writer.WriteLine("Message :" + ex.Message + Environment.NewLine +
                                  "Exception :" + ex.InnerException + Environment.NewLine +

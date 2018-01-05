@@ -14,12 +14,19 @@ namespace VoxLotus
         private static readonly TextInfo textInfo;
         private static readonly PluralizationService pluralizer;
 
+        public static readonly string DirectoryLocation;
+        public static readonly string ErrorLogLocation;
+        public static readonly string DebugLogLocation;
+
         static Utilities()
         {
             // Anything other than English throws off the pluralizer.
             CultureInfo cultureInfo = new CultureInfo("en-US");
             textInfo = cultureInfo.TextInfo;
             pluralizer = PluralizationService.CreateService(cultureInfo);
+            DirectoryLocation = Environment.CurrentDirectory;
+            ErrorLogLocation = DirectoryLocation + "\\error.log";
+            DebugLogLocation = DirectoryLocation + "\\debug.log";
         }
 
         public static void DebugLog(string line)
@@ -27,12 +34,10 @@ namespace VoxLotus
             if (!ConfigurationManager.Instance.Settings.EnableDebugLog)
                 return;
 
-            string path = Environment.CurrentDirectory + "\\debug.log";
+            if (!File.Exists(DebugLogLocation))
+                File.Create(DebugLogLocation);
 
-            if (!File.Exists(path))
-                File.Create(path);
-
-            using (StreamWriter writer = new StreamWriter(path, true))
+            using (StreamWriter writer = new StreamWriter(DebugLogLocation, true))
             {
                 writer.WriteLine($"[{DateTime.Now:g}] {line}");
                 writer.Close();
