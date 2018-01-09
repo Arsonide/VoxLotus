@@ -28,7 +28,8 @@ namespace VoxLotus
         {
             configWindow = new Form1();
 
-            var configMenuItem = new MenuItem("Modify Filter...", ShowConfig);
+            var configMenuItem = new MenuItem("Open", ShowConfig);
+            var aboutMenuItem = new MenuItem("About", ShowAbout);
             var exitMenuItem = new MenuItem("Exit", Exit);
 
             voice = new SpeechSynthesizer();
@@ -37,7 +38,7 @@ namespace VoxLotus
             notifyIcon = new NotifyIcon
             {
                 Icon = System.Drawing.Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetEntryAssembly().ManifestModule.Name),
-                ContextMenu = new ContextMenu(new[] { configMenuItem, exitMenuItem }),
+                ContextMenu = new ContextMenu(new[] { configMenuItem, aboutMenuItem, exitMenuItem }),
                 Visible = true
             };
 
@@ -81,6 +82,14 @@ namespace VoxLotus
         protected void ShowConfig(object sender, EventArgs e)
         {
             configWindow.SafeInvoke(() => { configWindow.Popup(); });
+        }
+
+        protected void ShowAbout(object sender, EventArgs e)
+        {
+            using (var about = new Form2())
+            {
+                about.ShowDialog();
+            }
         }
 
         public void Exit(object sender, EventArgs e)
