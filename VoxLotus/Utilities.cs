@@ -36,7 +36,7 @@ namespace VoxLotus
 
             using (StreamWriter writer = new StreamWriter(DebugLogLocation, true))
             {
-                writer.WriteLine($"[{DateTime.Now:g}] {line}");
+                writer.WriteLine($"[{DateTime.Now:G}] {line}");
                 writer.Close();
             }
         }
