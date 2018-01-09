@@ -4,15 +4,15 @@ namespace VoxLotus.Controls
 {
     public class LoggedMessageListBoxItem : LoggedListBoxItem
     {
-        public LoggedMessageListBoxItem(string message, bool bold = false)
+        public LoggedMessageListBoxItem(string message, bool faded = false)
         {
-            SetText(message, bold);
+            SetText(message, faded);
             tag = Guid.NewGuid().ToString();
         }
 
-        public LoggedMessageListBoxItem(string title, string message, bool bold = false)
+        public LoggedMessageListBoxItem(string title, string message, bool faded = false)
         {
-            SetText(title, message, bold);
+            SetText(title, message, faded);
             tag = Guid.NewGuid().ToString();
         }
     }

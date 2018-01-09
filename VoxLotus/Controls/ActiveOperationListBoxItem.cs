@@ -24,7 +24,7 @@ namespace VoxLotus.Controls
 
             missionText = operation.Description(DescriptionType.Written);
             tag = operation.Id;
-            bold = false;
+            faded = false;
 
             UpdateText();
         }

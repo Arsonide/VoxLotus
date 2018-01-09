@@ -417,9 +417,9 @@ namespace VoxLotus
 
         #region Log
 
-        public void LogMessage(string title, string message, bool bold)
+        public void LogMessage(string title, string message, bool faded)
         {
-            loggedEvents.AddItemToTop(new LoggedMessageListBoxItem(title, message, bold));
+            loggedEvents.AddItemToTop(new LoggedMessageListBoxItem(title, message, faded));
         }
 
         private void ClearLogButton_Click(object sender, EventArgs e)

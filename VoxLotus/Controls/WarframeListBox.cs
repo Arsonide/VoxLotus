@@ -6,11 +6,10 @@ namespace VoxLotus.Controls
     public sealed class WarframeListBox : ListBox
     {
         private bool drawingInitialized;
-        private Font unboldedFont;
-        private Font boldedFont;
         private SolidBrush backgroundAlphaBrush;
         private SolidBrush backgroundBetaBrush;
-        private SolidBrush foregroundBrush;
+        private SolidBrush textBrushSolid;
+        private SolidBrush textBrushFaded;
 
         public WarframeListBox()
         {
@@ -25,11 +24,10 @@ namespace VoxLotus.Controls
 
         private void InitializeDrawing(DrawItemEventArgs e)
         {
-            unboldedFont = e.Font;
-            boldedFont = new Font(e.Font, FontStyle.Bold);
             backgroundAlphaBrush = new SolidBrush(SystemColors.ControlLightLight);
             backgroundBetaBrush = new SolidBrush(SystemColors.Control);
-            foregroundBrush = new SolidBrush(e.ForeColor);
+            textBrushSolid = new SolidBrush(e.ForeColor);
+            textBrushFaded = new SolidBrush(Color.FromArgb(e.ForeColor.A / 2, e.ForeColor.R / 2, e.ForeColor.G / 2, e.ForeColor.B / 2));
             drawingInitialized = true;
         }
 
@@ -61,11 +59,11 @@ namespace VoxLotus.Controls
                 InitializeDrawing(e);
 
             SolidBrush backgroundBrush = e.Index % 2 == 0 ? backgroundAlphaBrush : backgroundBetaBrush;
-            Font font = item.bold ? boldedFont : unboldedFont;
+            SolidBrush foregroundBrush = item.faded ? textBrushFaded : textBrushSolid;
 
             e.DrawBackground();
             e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
-            e.Graphics.DrawString(item.text, font, foregroundBrush, e.Bounds);
+            e.Graphics.DrawString(item.text, e.Font, foregroundBrush, e.Bounds);
             e.DrawFocusRectangle();
         }
 

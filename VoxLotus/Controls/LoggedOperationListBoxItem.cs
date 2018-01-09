@@ -4,7 +4,7 @@
     {
         public LoggedOperationListBoxItem(ParsedOperation operation)
         {
-            SetText(operation.Type, operation.Description(DescriptionType.Logged), operation.Relevant);
+            SetText(operation.Type, operation.Description(DescriptionType.Logged), !operation.Relevant);
             tag = operation.Id;
         }
     }
