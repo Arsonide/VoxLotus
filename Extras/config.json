@@ -926,6 +926,11 @@
     },
     {
       "EntryType": "Helmet",
+      "EntryName": "Wukong Macak Helmet",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Helmet",
       "EntryName": "Zephyr Cierzo Helmet",
       "EntryPronunciation": "Zephyr See-err-tzo Helmet",
       "EntryInterest": 1
@@ -1063,23 +1068,23 @@
     },
     {
       "EntryType": "Weapon",
-      "EntryName": "Twin Vipers Wraith",
-      "EntryDisplay": "Twin Vipers Wraith Blueprint",
+      "EntryName": "Wraith Twin Vipers",
+      "EntryDisplay": "Wraith Twin Vipers Blueprint",
       "EntryInterest": 1
     },
     {
       "EntryType": "Weapon",
-      "EntryName": "Twin Vipers Wraith Barrels",
+      "EntryName": "Wraith Twin Vipers Barrels",
       "EntryInterest": 1
     },
     {
       "EntryType": "Weapon",
-      "EntryName": "Twin Vipers Wraith Receivers",
+      "EntryName": "Wraith Twin Vipers Receivers",
       "EntryInterest": 1
     },
     {
       "EntryType": "Weapon",
-      "EntryName": "Twin Vipers Wraith Link",
+      "EntryName": "Wraith Twin Vipers Link",
       "EntryInterest": 1
     },
     {
