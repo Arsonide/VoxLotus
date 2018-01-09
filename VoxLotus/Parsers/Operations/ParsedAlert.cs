@@ -25,13 +25,13 @@ namespace VoxLotus.Parsers
             switch (type)
             {
                 case DescriptionType.Spoken:
-                    return $"A new Tenno alert rewarding {reward.Description(true, true)} has appeared {node.PlanetDescription(true, true)}.";
+                    return $"A new Tenno alert rewarding {reward.Description(true, false, true)} has appeared {node.PlanetDescription(true, true)}.";
                 case DescriptionType.Logged:
-                    return $"{alert.Mission.Node}: {alert.Mission.Faction} {alert.Mission.Type} Alert. Rewards: {reward.Description(false)}.";
+                    return $"{alert.Mission.Node}: {alert.Mission.Faction} {alert.Mission.Type} Alert. Rewards: {reward.Description(false, true, false)}.";
                 case DescriptionType.Progress:
                     return $"Remaining: {Utilities.ReadableTimeSpan(alert.EndTime.Subtract(DateTime.UtcNow), false)}.";
                 default:
-                    return $"{alert.Mission.Node}: {alert.Mission.Faction} {alert.Mission.Type} Alert. Rewards: {reward.Description(false)}.";
+                    return $"{alert.Mission.Node}: {alert.Mission.Faction} {alert.Mission.Type} Alert. Rewards: {reward.Description(false, true, false)}.";
 
             }
         }

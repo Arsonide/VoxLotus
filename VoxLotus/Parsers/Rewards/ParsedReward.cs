@@ -11,6 +11,8 @@ namespace VoxLotus
         protected readonly List<ParsedRewardItem> allItems = new List<ParsedRewardItem>();
         protected readonly List<ParsedRewardItem> relevantItems = new List<ParsedRewardItem>();
 
+        protected string missionType = "";
+
         public ParsedReward(string missionType, Reward reward)
         {
             SetRewards(missionType, reward);
@@ -28,6 +30,7 @@ namespace VoxLotus
 
         public void SetRewards(string missionType, params Reward[] rewards)
         {
+            this.missionType = missionType;
             allItems.Clear();
 
             decimal maxEndo = 0;
@@ -77,10 +80,27 @@ namespace VoxLotus
 
         public bool Relevant => relevantItems.Count > 0;
 
-        public string Description(bool relevant, bool spoken = false)
+        public string Description(bool relevant, bool tagged, bool spoken)
         {
-            List<string> items = relevant ? relevantItems.Select(i => i.Description(spoken)).ToList() : allItems.Select(i => i.Description(spoken)).ToList();
-            return string.Join(", ", items.Take(items.Count - 1)) + (items.Count <= 1 ? "" : " and ") + items.LastOrDefault();
+            List<ParsedRewardItem> items = relevant ? relevantItems : allItems;
+
+            List<string> descriptions = new List<string>();
+
+            foreach (ParsedRewardItem item in items)
+            {
+                string prefix = string.Empty;
+                string suffix = string.Empty;
+
+                if (tagged && item.Relevant(missionType))
+                {
+                    prefix = ConfigurationManager.Instance.Settings.RelevantPrefix;
+                    suffix = ConfigurationManager.Instance.Settings.RelevantSuffix;
+                }
+
+                descriptions.Add($"{prefix}{item.Description(spoken)}{suffix}");
+            }
+
+            return string.Join(", ", descriptions.Take(items.Count - 1)) + (descriptions.Count <= 1 ? "" : " and ") + descriptions.LastOrDefault();
         }
     }
 }

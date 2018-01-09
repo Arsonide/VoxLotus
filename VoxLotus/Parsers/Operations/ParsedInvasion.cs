@@ -36,13 +36,13 @@ namespace VoxLotus.Parsers
             switch(type)
             {
                 case DescriptionType.Spoken:
-                    return $"A new {invasion.Description} rewarding {reward.Description(true, true)} has appeared {node.PlanetDescription(true, true)}.";
+                    return $"A new {invasion.Description} rewarding {reward.Description(true, false, true)} has appeared {node.PlanetDescription(true, true)}.";
                 case DescriptionType.Logged:
-                    return $"{invasion.Node}: {invasion.Description}. Rewards: {reward.Description(false)}.";
+                    return $"{invasion.Node}: {invasion.Description}. Rewards: {reward.Description(false, true, false)}.";
                 case DescriptionType.Progress:
                     return $"Completion: {Math.Round(Completion)}%.";
                 default:
-                    return $"{invasion.Node}: {invasion.Description}. Rewards: {reward.Description(false)}.";
+                    return $"{invasion.Node}: {invasion.Description}. Rewards: {reward.Description(false, true, false)}.";
 
             }
         }

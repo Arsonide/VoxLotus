@@ -8,7 +8,10 @@ namespace VoxLotus
     public class ConfigurationSettings
     {
         public const string DefaultCustomSearch = "Comma separated reward names - supports exact names, wildcards, and regular expressions.";
+
         protected const string defaultTag = "Default";
+        protected const string defaultRelevantPrefix = "[";
+        protected const string defaultRelevantSuffix = "]";
 
         [DefaultValue(CheckState.Unchecked)]
         [JsonConverter(typeof(StringEnumConverter))]
@@ -53,6 +56,18 @@ namespace VoxLotus
         [DefaultValue(10)]
         [JsonProperty(PropertyName = "WarningTimeAmount", DefaultValueHandling = DefaultValueHandling.Populate)]
         public decimal WarningTimeAmount = 10;
+
+        [DefaultValue(false)]
+        [JsonProperty(PropertyName = "EnableDebugLog", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public bool EnableDebugLog = false;
+
+        [DefaultValue(defaultRelevantPrefix)]
+        [JsonProperty(PropertyName = "RelevantPrefix", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public string RelevantPrefix = defaultRelevantPrefix;
+
+        [DefaultValue(defaultRelevantSuffix)]
+        [JsonProperty(PropertyName = "RelevantSuffix", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public string RelevantSuffix = defaultRelevantSuffix;
 
         [DefaultValue(CheckState.Checked)]
         [JsonConverter(typeof(StringEnumConverter))]
@@ -127,9 +142,5 @@ namespace VoxLotus
         [DefaultValue(0)]
         [JsonProperty(PropertyName = "DistillingExtractorsExpiry", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public long DistillingExtractorsExpiry;
-
-        [DefaultValue(false)]
-        [JsonProperty(PropertyName = "EnableDebugLog", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public bool EnableDebugLog = false;
     }
 }
