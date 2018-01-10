@@ -149,6 +149,8 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parsers\Tickers\CetusTicker.cs" />
+    <Compile Include="Parsers\Tickers\EarthTicker.cs" />
     <Compile Include="Parsers\Tickers\Extractor.cs" />
     <Compile Include="Parsers\Operations\ParsedAlert.cs" />
     <Compile Include="Parsers\Operations\ParsedInvasion.cs" />
