@@ -136,6 +136,14 @@ namespace VoxLotus
         public string CustomSearch = DefaultCustomSearch;
 
         [DefaultValue(0)]
+        [JsonProperty(PropertyName = "EarthCyclicAnchor", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        public long EarthCyclicAnchor;
+
+        [DefaultValue(0)]
+        [JsonProperty(PropertyName = "CetusCyclicAnchor", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        public long CetusCyclicAnchor;
+
+        [DefaultValue(0)]
         [JsonProperty(PropertyName = "TitanExtractorsExpiry", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public long TitanExtractorsExpiry;
 
