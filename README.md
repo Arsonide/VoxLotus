@@ -1,7 +1,7 @@
 # Vox Lotus
 Vox Lotus is a standalone system tray application for the game Warframe. It announces alerts, invasions, and other events that are occurring in-game using tray notifications and audible text to speech. These announcements can be extensively configured, tweaked, and filtered based on your preferences.
 
-![wa](https://i.imgur.com/Al2owiT.png)
+![wa](https://i.imgur.com/yZps01I.jpg)
 
 # Features
 There are many programs and websites for Warframe that do what Vox Lotus does. Let's go over the basic common features of these programs first.
