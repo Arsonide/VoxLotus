@@ -234,6 +234,11 @@
     },
     {
       "EntryType": "Resource",
+      "EntryName": "Cryotic",
+      "EntryInterest": 1
+    },
+    {
+      "EntryType": "Resource",
       "EntryName": "Polymer Bundle",
       "EntryInterest": 1
     },
