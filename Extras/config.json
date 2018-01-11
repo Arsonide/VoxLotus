@@ -270,11 +270,6 @@
     },
     {
       "EntryType": "Aura",
-      "EntryName": "Brief Respite",
-      "EntryInterest": 1
-    },
-    {
-      "EntryType": "Aura",
       "EntryName": "Corrosive Projection",
       "EntryInterest": 1
     },
@@ -291,12 +286,6 @@
     },
     {
       "EntryType": "Aura",
-      "EntryName": "Empowered Blades",
-      "EntryPrefix": "an",
-      "EntryInterest": 1
-    },
-    {
-      "EntryType": "Aura",
       "EntryName": "Enemy Radar",
       "EntryPrefix": "an",
       "EntryInterest": 1
@@ -305,11 +294,6 @@
       "EntryType": "Aura",
       "EntryName": "Energy Siphon",
       "EntryPrefix": "an",
-      "EntryInterest": 1
-    },
-    {
-      "EntryType": "Aura",
-      "EntryName": "Growing Power",
       "EntryInterest": 1
     },
     {
@@ -381,11 +365,6 @@
     {
       "EntryType": "Aura",
       "EntryName": "Sprint Boost",
-      "EntryInterest": 1
-    },
-    {
-      "EntryType": "Aura",
-      "EntryName": "Stand United",
       "EntryInterest": 1
     },
     {
