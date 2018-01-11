@@ -21,9 +21,9 @@ namespace VoxLotus.Parsers
             Display = name;
             Name = StripBlueprint(Display);
 
-            if (ConfigurationManager.Instance.HasEntryName(Name))
+            if (ConfigurationManager.Instance.TryGetEntryByName(Name, out ConfigurationEntry entry))
             {
-                Entry = ConfigurationManager.Instance.GetEntryByName(Name);
+                Entry = entry;
                 Undefined = false;
             }
             else

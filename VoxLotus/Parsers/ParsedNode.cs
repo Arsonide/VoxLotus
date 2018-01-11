@@ -30,8 +30,8 @@ namespace VoxLotus.Parsers
             string[] splits = node.Split('(', ')');
             sector = splits.Length > 0 ? splits[0].Trim() : string.Empty;
             planet = splits.Length > 1 ? splits[1].Trim() : string.Empty;
-            sectorEntry = ConfigurationManager.Instance.GetEntryByName(Sector);
-            planetEntry = ConfigurationManager.Instance.GetEntryByName(Planet);
+            ConfigurationManager.Instance.TryGetEntryByName(Sector, out sectorEntry);
+            ConfigurationManager.Instance.TryGetEntryByName(Planet, out planetEntry);
         }
 
         public string SectorDescription(bool prefix, bool spoken = false)

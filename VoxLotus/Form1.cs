@@ -90,14 +90,14 @@ namespace VoxLotus
 
             foreach (CheckBox checkBox in planetBoxes)
             {
-                if (ConfigurationManager.Instance.HasEntryName(checkBox.Name))
-                    checkBox.CheckState = ConfigurationManager.Instance.GetEntryByName(checkBox.Name).EntryCheckState;
+                if (ConfigurationManager.Instance.TryGetEntryByName(checkBox.Name, out ConfigurationEntry entry))
+                    checkBox.CheckState = entry.EntryCheckState;
             }
 
             foreach (CheckBox checkBox in rewardBoxes)
             {
-                if (ConfigurationManager.Instance.HasEntryName(checkBox.Name))
-                    checkBox.CheckState = ConfigurationManager.Instance.GetEntryByName(checkBox.Name).EntryCheckState;
+                if (ConfigurationManager.Instance.TryGetEntryByName(checkBox.Name, out ConfigurationEntry entry))
+                    checkBox.CheckState = entry.EntryCheckState;
             }
 
             popupInGameBox.CheckState = ConfigurationManager.Instance.Settings.PopUpInGame;
@@ -130,14 +130,14 @@ namespace VoxLotus
         {
             foreach (CheckBox checkBox in planetBoxes)
             {
-                if (ConfigurationManager.Instance.HasEntryName(checkBox.Name))
-                    ConfigurationManager.Instance.GetEntryByName(checkBox.Name).EntryCheckState = checkBox.CheckState;
+                if (ConfigurationManager.Instance.TryGetEntryByName(checkBox.Name, out ConfigurationEntry entry))
+                    entry.EntryCheckState = checkBox.CheckState;
             }
 
             foreach (CheckBox checkBox in rewardBoxes)
             {
-                if (ConfigurationManager.Instance.HasEntryName(checkBox.Name))
-                    ConfigurationManager.Instance.GetEntryByName(checkBox.Name).EntryCheckState = checkBox.CheckState;
+                if (ConfigurationManager.Instance.TryGetEntryByName(checkBox.Name, out ConfigurationEntry entry))
+                    entry.EntryCheckState = checkBox.CheckState;
             }
 
             ConfigurationManager.Instance.Settings.PopUpInGame = popupInGameBox.CheckState;

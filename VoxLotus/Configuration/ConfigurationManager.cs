@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace VoxLotus
 {
@@ -90,7 +91,7 @@ namespace VoxLotus
                     entriesByType[entry.EntryType] = new List<ConfigurationEntry>();
 
                 entriesByType[entry.EntryType].Add(entry);
-                entriesByName[entry.EntryName] = entry;
+                entriesByName[entry.EntryName.ToLowerInvariant()] = entry;
             }
 
             foreach(KeyValuePair<string, string> pair in Pluralizations)
@@ -113,18 +114,32 @@ namespace VoxLotus
             return entries;
         }
 
-        public bool HasEntryName(string entryName)
+        public bool TryGetEntryByName(string entryName, out ConfigurationEntry entry)
         {
+            entry = null;
+            entryName = entryName.ToLowerInvariant();
+
             if (entriesByName == null || entriesByName.Count <= 0)
                 return false;
 
-            return entriesByName.ContainsKey(entryName);
+            if (entriesByName.TryGetValue(entryName, out entry))
+                return true;
+
+            entry = GetEntryByTag(entryName);
+            return entry != null;
         }
 
-        public ConfigurationEntry GetEntryByName(string name)
+        protected ConfigurationEntry GetEntryByTag(string entryName)
         {
-            entriesByName.TryGetValue(name, out ConfigurationEntry entry);
-            return entry;
+            string[] keyWords = entryName.Split(' ');
+
+            foreach (string key in entriesByName.Keys)
+            {
+                if (keyWords.All(keyWord => key.Contains(keyWord)))
+                    return entriesByName[key];
+            }
+
+            return null;
         }
 
         public List<string> GetTediousMissions(string tag)
