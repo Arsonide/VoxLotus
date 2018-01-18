@@ -142,10 +142,14 @@ namespace VoxLotus
                 task = client.GetWorldStateAsync("pc/");
                 await task;
             }
-            catch
+            catch(Exception ex)
             {
                 if (status != ConnectionStatus.Issue)
+                {
                     Log("System", "Having trouble retrieving world state. Will retry every minute.");
+                    Log("Exception", ex.Message);
+                    Utilities.DebugLog($"[CONNECTION] {ex.InnerException}");
+                }
 
                 status = ConnectionStatus.Issue;
                 return;
