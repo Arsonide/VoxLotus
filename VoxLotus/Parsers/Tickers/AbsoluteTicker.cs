@@ -32,5 +32,14 @@ namespace VoxLotus
         {
             Expiry = DateTime.UtcNow + offset;
         }
+
+        public void ResetToDay(DayOfWeek day)
+        {
+            DateTime now = DateTime.UtcNow;
+            DateTime today = DateTime.Today;
+            int daysUntilMonday = (((int)day - (int)now.DayOfWeek + 7) % 7);
+            DateTime result = now.Date.AddDays(daysUntilMonday);
+            Expiry = (now <= result) ? result : result.AddDays(7);
+        }
     }
 }
