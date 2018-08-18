@@ -55,10 +55,8 @@ namespace VoxLotus
             this.cetusDayBox = new System.Windows.Forms.CheckBox();
             this.earthNightBox = new System.Windows.Forms.CheckBox();
             this.earthDayBox = new System.Windows.Forms.CheckBox();
-            this.activeEvents = new VoxLotus.Controls.WarframeListBox();
             this.logTab = new System.Windows.Forms.TabPage();
             this.clearLogButton = new System.Windows.Forms.Button();
-            this.loggedEvents = new VoxLotus.Controls.WarframeListBox();
             this.planetTab = new System.Windows.Forms.TabPage();
             this.resourcesTab = new System.Windows.Forms.TabPage();
             this.auraTab = new System.Windows.Forms.TabPage();
@@ -79,6 +77,10 @@ namespace VoxLotus
             this.checkStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uncheckStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dotStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.weeklyResetBox = new System.Windows.Forms.CheckBox();
+            this.weeklyTimerLabel = new System.Windows.Forms.Label();
+            this.activeEvents = new VoxLotus.Controls.WarframeListBox();
+            this.loggedEvents = new VoxLotus.Controls.WarframeListBox();
             this.Overview.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.logTab.SuspendLayout();
@@ -104,12 +106,14 @@ namespace VoxLotus
             this.Overview.Location = new System.Drawing.Point(7, 7);
             this.Overview.Name = "Overview";
             this.Overview.SelectedIndex = 0;
-            this.Overview.Size = new System.Drawing.Size(556, 375);
+            this.Overview.Size = new System.Drawing.Size(556, 398);
             this.Overview.TabIndex = 0;
             this.Overview.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Overview_MouseUp);
             // 
             // mainTab
             // 
+            this.mainTab.Controls.Add(this.weeklyTimerLabel);
+            this.mainTab.Controls.Add(this.weeklyResetBox);
             this.mainTab.Controls.Add(this.titanExtractorTimerLabel);
             this.mainTab.Controls.Add(this.distillingExtractorTimerLabel);
             this.mainTab.Controls.Add(this.earthNightTimerLabel);
@@ -134,7 +138,7 @@ namespace VoxLotus
             this.mainTab.Location = new System.Drawing.Point(4, 22);
             this.mainTab.Name = "mainTab";
             this.mainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.mainTab.Size = new System.Drawing.Size(548, 349);
+            this.mainTab.Size = new System.Drawing.Size(548, 372);
             this.mainTab.TabIndex = 1;
             this.mainTab.Text = "Main";
             this.mainTab.UseVisualStyleBackColor = true;
@@ -157,7 +161,7 @@ namespace VoxLotus
             // 
             // earthNightTimerLabel
             // 
-            this.earthNightTimerLabel.Location = new System.Drawing.Point(300, 325);
+            this.earthNightTimerLabel.Location = new System.Drawing.Point(300, 348);
             this.earthNightTimerLabel.Name = "earthNightTimerLabel";
             this.earthNightTimerLabel.Size = new System.Drawing.Size(76, 17);
             this.earthNightTimerLabel.TabIndex = 18;
@@ -165,7 +169,7 @@ namespace VoxLotus
             // 
             // earthDayTimerLabel
             // 
-            this.earthDayTimerLabel.Location = new System.Drawing.Point(300, 302);
+            this.earthDayTimerLabel.Location = new System.Drawing.Point(300, 325);
             this.earthDayTimerLabel.Name = "earthDayTimerLabel";
             this.earthDayTimerLabel.Size = new System.Drawing.Size(76, 17);
             this.earthDayTimerLabel.TabIndex = 17;
@@ -173,7 +177,7 @@ namespace VoxLotus
             // 
             // cetusNightTimerLabel
             // 
-            this.cetusNightTimerLabel.Location = new System.Drawing.Point(300, 279);
+            this.cetusNightTimerLabel.Location = new System.Drawing.Point(300, 302);
             this.cetusNightTimerLabel.Name = "cetusNightTimerLabel";
             this.cetusNightTimerLabel.Size = new System.Drawing.Size(76, 17);
             this.cetusNightTimerLabel.TabIndex = 16;
@@ -181,7 +185,7 @@ namespace VoxLotus
             // 
             // cetusDayTimerLabel
             // 
-            this.cetusDayTimerLabel.Location = new System.Drawing.Point(300, 256);
+            this.cetusDayTimerLabel.Location = new System.Drawing.Point(300, 279);
             this.cetusDayTimerLabel.Name = "cetusDayTimerLabel";
             this.cetusDayTimerLabel.Size = new System.Drawing.Size(76, 17);
             this.cetusDayTimerLabel.TabIndex = 15;
@@ -189,7 +193,7 @@ namespace VoxLotus
             // 
             // missionTimerLabel
             // 
-            this.missionTimerLabel.Location = new System.Drawing.Point(300, 233);
+            this.missionTimerLabel.Location = new System.Drawing.Point(300, 256);
             this.missionTimerLabel.Name = "missionTimerLabel";
             this.missionTimerLabel.Size = new System.Drawing.Size(76, 17);
             this.missionTimerLabel.TabIndex = 14;
@@ -197,7 +201,7 @@ namespace VoxLotus
             // 
             // dailyTimerLabel
             // 
-            this.dailyTimerLabel.Location = new System.Drawing.Point(300, 210);
+            this.dailyTimerLabel.Location = new System.Drawing.Point(300, 233);
             this.dailyTimerLabel.Name = "dailyTimerLabel";
             this.dailyTimerLabel.Size = new System.Drawing.Size(76, 17);
             this.dailyTimerLabel.TabIndex = 13;
@@ -304,7 +308,7 @@ namespace VoxLotus
             this.missionResetBox.AutoSize = true;
             this.missionResetBox.Checked = true;
             this.missionResetBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.missionResetBox.Location = new System.Drawing.Point(382, 234);
+            this.missionResetBox.Location = new System.Drawing.Point(382, 257);
             this.missionResetBox.MinimumSize = new System.Drawing.Size(160, 17);
             this.missionResetBox.Name = "missionResetBox";
             this.missionResetBox.Size = new System.Drawing.Size(160, 17);
@@ -321,7 +325,7 @@ namespace VoxLotus
             this.dailyResetBox.AutoSize = true;
             this.dailyResetBox.Checked = true;
             this.dailyResetBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.dailyResetBox.Location = new System.Drawing.Point(382, 211);
+            this.dailyResetBox.Location = new System.Drawing.Point(382, 234);
             this.dailyResetBox.MinimumSize = new System.Drawing.Size(160, 17);
             this.dailyResetBox.Name = "dailyResetBox";
             this.dailyResetBox.Size = new System.Drawing.Size(160, 17);
@@ -338,7 +342,7 @@ namespace VoxLotus
             this.cetusNightBox.AutoSize = true;
             this.cetusNightBox.Checked = true;
             this.cetusNightBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cetusNightBox.Location = new System.Drawing.Point(382, 280);
+            this.cetusNightBox.Location = new System.Drawing.Point(382, 303);
             this.cetusNightBox.MinimumSize = new System.Drawing.Size(160, 17);
             this.cetusNightBox.Name = "cetusNightBox";
             this.cetusNightBox.Size = new System.Drawing.Size(160, 17);
@@ -354,7 +358,7 @@ namespace VoxLotus
             this.cetusDayBox.AutoSize = true;
             this.cetusDayBox.Checked = true;
             this.cetusDayBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cetusDayBox.Location = new System.Drawing.Point(382, 257);
+            this.cetusDayBox.Location = new System.Drawing.Point(382, 280);
             this.cetusDayBox.MinimumSize = new System.Drawing.Size(160, 17);
             this.cetusDayBox.Name = "cetusDayBox";
             this.cetusDayBox.Size = new System.Drawing.Size(160, 17);
@@ -368,7 +372,7 @@ namespace VoxLotus
             // earthNightBox
             // 
             this.earthNightBox.AutoSize = true;
-            this.earthNightBox.Location = new System.Drawing.Point(382, 326);
+            this.earthNightBox.Location = new System.Drawing.Point(382, 349);
             this.earthNightBox.MinimumSize = new System.Drawing.Size(160, 17);
             this.earthNightBox.Name = "earthNightBox";
             this.earthNightBox.Size = new System.Drawing.Size(160, 17);
@@ -382,7 +386,7 @@ namespace VoxLotus
             // earthDayBox
             // 
             this.earthDayBox.AutoSize = true;
-            this.earthDayBox.Location = new System.Drawing.Point(382, 303);
+            this.earthDayBox.Location = new System.Drawing.Point(382, 326);
             this.earthDayBox.MinimumSize = new System.Drawing.Size(160, 17);
             this.earthDayBox.Name = "earthDayBox";
             this.earthDayBox.Size = new System.Drawing.Size(160, 17);
@@ -393,17 +397,6 @@ namespace VoxLotus
             this.earthDayBox.UseVisualStyleBackColor = true;
             this.earthDayBox.CheckedChanged += new System.EventHandler(this.SettingsChanged);
             // 
-            // activeEvents
-            // 
-            this.activeEvents.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.activeEvents.FormattingEnabled = true;
-            this.activeEvents.Location = new System.Drawing.Point(0, 0);
-            this.activeEvents.Name = "activeEvents";
-            this.activeEvents.ScrollAlwaysVisible = true;
-            this.activeEvents.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.activeEvents.Size = new System.Drawing.Size(548, 186);
-            this.activeEvents.TabIndex = 0;
-            // 
             // logTab
             // 
             this.logTab.Controls.Add(this.clearLogButton);
@@ -411,14 +404,14 @@ namespace VoxLotus
             this.logTab.Location = new System.Drawing.Point(4, 22);
             this.logTab.Name = "logTab";
             this.logTab.Padding = new System.Windows.Forms.Padding(3);
-            this.logTab.Size = new System.Drawing.Size(548, 349);
+            this.logTab.Size = new System.Drawing.Size(548, 372);
             this.logTab.TabIndex = 2;
             this.logTab.Text = "Log";
             this.logTab.UseVisualStyleBackColor = true;
             // 
             // clearLogButton
             // 
-            this.clearLogButton.Location = new System.Drawing.Point(0, 322);
+            this.clearLogButton.Location = new System.Drawing.Point(0, 345);
             this.clearLogButton.Name = "clearLogButton";
             this.clearLogButton.Size = new System.Drawing.Size(548, 23);
             this.clearLogButton.TabIndex = 2;
@@ -426,24 +419,13 @@ namespace VoxLotus
             this.clearLogButton.UseVisualStyleBackColor = true;
             this.clearLogButton.Click += new System.EventHandler(this.ClearLogButton_Click);
             // 
-            // loggedEvents
-            // 
-            this.loggedEvents.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.loggedEvents.FormattingEnabled = true;
-            this.loggedEvents.Location = new System.Drawing.Point(0, 0);
-            this.loggedEvents.Name = "loggedEvents";
-            this.loggedEvents.ScrollAlwaysVisible = true;
-            this.loggedEvents.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.loggedEvents.Size = new System.Drawing.Size(548, 316);
-            this.loggedEvents.TabIndex = 1;
-            // 
             // planetTab
             // 
             this.planetTab.BackColor = System.Drawing.SystemColors.Control;
             this.planetTab.Location = new System.Drawing.Point(4, 22);
             this.planetTab.Name = "planetTab";
             this.planetTab.Padding = new System.Windows.Forms.Padding(3);
-            this.planetTab.Size = new System.Drawing.Size(548, 349);
+            this.planetTab.Size = new System.Drawing.Size(548, 372);
             this.planetTab.TabIndex = 0;
             this.planetTab.Text = "Planets";
             // 
@@ -453,7 +435,7 @@ namespace VoxLotus
             this.resourcesTab.Location = new System.Drawing.Point(4, 22);
             this.resourcesTab.Name = "resourcesTab";
             this.resourcesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.resourcesTab.Size = new System.Drawing.Size(548, 349);
+            this.resourcesTab.Size = new System.Drawing.Size(548, 372);
             this.resourcesTab.TabIndex = 4;
             this.resourcesTab.Text = "Resources";
             // 
@@ -463,7 +445,7 @@ namespace VoxLotus
             this.auraTab.Location = new System.Drawing.Point(4, 22);
             this.auraTab.Name = "auraTab";
             this.auraTab.Padding = new System.Windows.Forms.Padding(3);
-            this.auraTab.Size = new System.Drawing.Size(548, 349);
+            this.auraTab.Size = new System.Drawing.Size(548, 372);
             this.auraTab.TabIndex = 3;
             this.auraTab.Text = "Auras";
             // 
@@ -473,7 +455,7 @@ namespace VoxLotus
             this.modTab.Location = new System.Drawing.Point(4, 22);
             this.modTab.Name = "modTab";
             this.modTab.Padding = new System.Windows.Forms.Padding(3);
-            this.modTab.Size = new System.Drawing.Size(548, 349);
+            this.modTab.Size = new System.Drawing.Size(548, 372);
             this.modTab.TabIndex = 5;
             this.modTab.Text = "Mods";
             // 
@@ -483,7 +465,7 @@ namespace VoxLotus
             this.blueprintTab.Location = new System.Drawing.Point(4, 22);
             this.blueprintTab.Name = "blueprintTab";
             this.blueprintTab.Padding = new System.Windows.Forms.Padding(3);
-            this.blueprintTab.Size = new System.Drawing.Size(548, 349);
+            this.blueprintTab.Size = new System.Drawing.Size(548, 372);
             this.blueprintTab.TabIndex = 6;
             this.blueprintTab.Text = "Blueprints";
             // 
@@ -493,7 +475,7 @@ namespace VoxLotus
             this.helmetsTab.Location = new System.Drawing.Point(4, 22);
             this.helmetsTab.Name = "helmetsTab";
             this.helmetsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.helmetsTab.Size = new System.Drawing.Size(548, 349);
+            this.helmetsTab.Size = new System.Drawing.Size(548, 372);
             this.helmetsTab.TabIndex = 9;
             this.helmetsTab.Text = "Helmets";
             // 
@@ -503,7 +485,7 @@ namespace VoxLotus
             this.weaponsTab.Location = new System.Drawing.Point(4, 22);
             this.weaponsTab.Name = "weaponsTab";
             this.weaponsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.weaponsTab.Size = new System.Drawing.Size(548, 349);
+            this.weaponsTab.Size = new System.Drawing.Size(548, 372);
             this.weaponsTab.TabIndex = 8;
             this.weaponsTab.Text = "Weapons";
             // 
@@ -513,7 +495,7 @@ namespace VoxLotus
             this.skinsTab.Location = new System.Drawing.Point(4, 22);
             this.skinsTab.Name = "skinsTab";
             this.skinsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.skinsTab.Size = new System.Drawing.Size(548, 349);
+            this.skinsTab.Size = new System.Drawing.Size(548, 372);
             this.skinsTab.TabIndex = 10;
             this.skinsTab.Text = "Skins";
             // 
@@ -529,13 +511,13 @@ namespace VoxLotus
             this.otherTab.Location = new System.Drawing.Point(4, 22);
             this.otherTab.Name = "otherTab";
             this.otherTab.Padding = new System.Windows.Forms.Padding(3);
-            this.otherTab.Size = new System.Drawing.Size(548, 349);
+            this.otherTab.Size = new System.Drawing.Size(548, 372);
             this.otherTab.TabIndex = 7;
             this.otherTab.Text = "Other";
             // 
             // undefinedCheckbox
             // 
-            this.undefinedCheckbox.Location = new System.Drawing.Point(375, 276);
+            this.undefinedCheckbox.Location = new System.Drawing.Point(375, 299);
             this.undefinedCheckbox.Name = "undefinedCheckbox";
             this.undefinedCheckbox.Size = new System.Drawing.Size(167, 17);
             this.undefinedCheckbox.TabIndex = 3;
@@ -549,7 +531,7 @@ namespace VoxLotus
             // customSearchBox
             // 
             this.customSearchBox.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.customSearchBox.Location = new System.Drawing.Point(6, 276);
+            this.customSearchBox.Location = new System.Drawing.Point(6, 299);
             this.customSearchBox.Multiline = true;
             this.customSearchBox.Name = "customSearchBox";
             this.customSearchBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -561,7 +543,7 @@ namespace VoxLotus
             // 
             // endoAmount
             // 
-            this.endoAmount.Location = new System.Drawing.Point(479, 323);
+            this.endoAmount.Location = new System.Drawing.Point(479, 346);
             this.endoAmount.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -574,7 +556,7 @@ namespace VoxLotus
             // 
             // creditAmount
             // 
-            this.creditAmount.Location = new System.Drawing.Point(479, 299);
+            this.creditAmount.Location = new System.Drawing.Point(479, 322);
             this.creditAmount.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -587,7 +569,7 @@ namespace VoxLotus
             // 
             // endoCheckbox
             // 
-            this.endoCheckbox.Location = new System.Drawing.Point(375, 324);
+            this.endoCheckbox.Location = new System.Drawing.Point(375, 347);
             this.endoCheckbox.Name = "endoCheckbox";
             this.endoCheckbox.Size = new System.Drawing.Size(104, 17);
             this.endoCheckbox.TabIndex = 0;
@@ -601,7 +583,7 @@ namespace VoxLotus
             // 
             // creditsCheckbox
             // 
-            this.creditsCheckbox.Location = new System.Drawing.Point(375, 300);
+            this.creditsCheckbox.Location = new System.Drawing.Point(375, 323);
             this.creditsCheckbox.Name = "creditsCheckbox";
             this.creditsCheckbox.Size = new System.Drawing.Size(104, 17);
             this.creditsCheckbox.TabIndex = 0;
@@ -620,35 +602,80 @@ namespace VoxLotus
             this.uncheckStripItem,
             this.dotStripItem});
             this.checkUncheckDotStrip.Name = "checkUncheckDotStrip";
-            this.checkUncheckDotStrip.Size = new System.Drawing.Size(153, 92);
+            this.checkUncheckDotStrip.Size = new System.Drawing.Size(138, 70);
             // 
             // checkStripItem
             // 
             this.checkStripItem.Name = "checkStripItem";
-            this.checkStripItem.Size = new System.Drawing.Size(152, 22);
+            this.checkStripItem.Size = new System.Drawing.Size(137, 22);
             this.checkStripItem.Text = "Check All";
             this.checkStripItem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CheckStripItem_MouseUp);
             // 
             // uncheckStripItem
             // 
             this.uncheckStripItem.Name = "uncheckStripItem";
-            this.uncheckStripItem.Size = new System.Drawing.Size(152, 22);
+            this.uncheckStripItem.Size = new System.Drawing.Size(137, 22);
             this.uncheckStripItem.Text = "Uncheck All";
             this.uncheckStripItem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UncheckStripItem_MouseUp);
             // 
             // dotStripItem
             // 
             this.dotStripItem.Name = "dotStripItem";
-            this.dotStripItem.Size = new System.Drawing.Size(152, 22);
+            this.dotStripItem.Size = new System.Drawing.Size(137, 22);
             this.dotStripItem.Text = "Dot All";
             this.dotStripItem.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DotStripItem_MouseUp);
+            // 
+            // weeklyResetBox
+            // 
+            this.weeklyResetBox.AutoSize = true;
+            this.weeklyResetBox.Checked = true;
+            this.weeklyResetBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.weeklyResetBox.Location = new System.Drawing.Point(382, 211);
+            this.weeklyResetBox.MinimumSize = new System.Drawing.Size(160, 17);
+            this.weeklyResetBox.Name = "weeklyResetBox";
+            this.weeklyResetBox.Size = new System.Drawing.Size(160, 17);
+            this.weeklyResetBox.TabIndex = 21;
+            this.weeklyResetBox.Text = "Weekly Reset Notification";
+            this.weeklyResetBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip1.SetToolTip(this.weeklyResetBox, "Notifies you when the weekly rewards reset for the week.");
+            this.weeklyResetBox.UseVisualStyleBackColor = true;
+            // 
+            // weeklyTimerLabel
+            // 
+            this.weeklyTimerLabel.Location = new System.Drawing.Point(300, 210);
+            this.weeklyTimerLabel.Name = "weeklyTimerLabel";
+            this.weeklyTimerLabel.Size = new System.Drawing.Size(76, 17);
+            this.weeklyTimerLabel.TabIndex = 22;
+            this.weeklyTimerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // activeEvents
+            // 
+            this.activeEvents.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.activeEvents.FormattingEnabled = true;
+            this.activeEvents.Location = new System.Drawing.Point(0, 0);
+            this.activeEvents.Name = "activeEvents";
+            this.activeEvents.ScrollAlwaysVisible = true;
+            this.activeEvents.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.activeEvents.Size = new System.Drawing.Size(548, 186);
+            this.activeEvents.TabIndex = 0;
+            // 
+            // loggedEvents
+            // 
+            this.loggedEvents.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.loggedEvents.FormattingEnabled = true;
+            this.loggedEvents.Location = new System.Drawing.Point(0, 0);
+            this.loggedEvents.Name = "loggedEvents";
+            this.loggedEvents.ScrollAlwaysVisible = true;
+            this.loggedEvents.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.loggedEvents.Size = new System.Drawing.Size(548, 339);
+            this.loggedEvents.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(570, 388);
+            this.ClientSize = new System.Drawing.Size(570, 411);
             this.Controls.Add(this.Overview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -718,6 +745,8 @@ namespace VoxLotus
         private System.Windows.Forms.ToolStripMenuItem checkStripItem;
         private System.Windows.Forms.ToolStripMenuItem uncheckStripItem;
         private System.Windows.Forms.ToolStripMenuItem dotStripItem;
+        private CheckBox weeklyResetBox;
+        private Label weeklyTimerLabel;
     }
 }
 

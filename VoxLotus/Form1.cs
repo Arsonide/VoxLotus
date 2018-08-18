@@ -335,6 +335,7 @@ namespace VoxLotus
             {
                 RefreshExtractorLabel(world.TitanExtractor, titanExtractorTimerLabel);
                 RefreshExtractorLabel(world.DistillingExtractor, distillingExtractorTimerLabel);
+                RefreshWeeklyAbsoluteLabel(world.WeeklyTicker, weeklyTimerLabel);
                 RefreshAbsoluteLabel(world.DailyTicker, dailyTimerLabel);
                 RefreshAbsoluteLabel(world.MissionTicker, missionTimerLabel);
                 RefreshCyclicLabel(world.CetusTicker, cetusDayTimerLabel, cetusNightTimerLabel);
@@ -352,6 +353,29 @@ namespace VoxLotus
 
             TimeSpan span = extractor.TimeLeft;
             label.Text = span.TotalSeconds >= 0 ? span.ToString(@"hh\:mm\:ss") : synchingTimer;
+        }
+
+        protected void RefreshWeeklyAbsoluteLabel(AbsoluteTicker ticker, Label label)
+        {
+            if (ticker == null)
+            {
+                label.Text = string.Empty;
+                return;
+            }
+
+            TimeSpan span = ticker.TimeLeft;
+            if (span.TotalSeconds >= 86400)
+            {
+                label.Text = span.ToString(@"dd\:hh\:mm\:ss");
+            }
+            else if (span.TotalSeconds >= 0)
+            {
+                label.Text = span.ToString(@"hh\:mm\:ss");
+            }
+            else
+            {
+                label.Text = synchingTimer;
+            }
         }
 
         protected void RefreshAbsoluteLabel(AbsoluteTicker ticker, Label label)

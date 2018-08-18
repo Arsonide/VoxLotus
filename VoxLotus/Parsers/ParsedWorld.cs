@@ -19,11 +19,13 @@ namespace VoxLotus.Parsers
 
         protected readonly Dictionary<string, ParsedOperation> operations = new Dictionary<string, ParsedOperation>();
 
+        protected DayOfWeek weeklyResetDay = DayOfWeek.Monday;
         protected TimeSpan dailyResetTime = new TimeSpan(0, 0, 0);
         protected TimeSpan missionResetTime = new TimeSpan(16, 0, 0);
 
         protected readonly TimeSpan nightDuration = new TimeSpan(0, 50, 0);
 
+        public readonly AbsoluteTicker WeeklyTicker = new AbsoluteTicker();
         public readonly AbsoluteTicker DailyTicker = new AbsoluteTicker();
         public readonly AbsoluteTicker MissionTicker = new AbsoluteTicker();
 
@@ -35,8 +37,10 @@ namespace VoxLotus.Parsers
 
         public ParsedWorld()
         {
+            WeeklyTicker.ResetToDay(weeklyResetDay);
             DailyTicker.ResetToTimeSpecific(dailyResetTime);
             MissionTicker.ResetToTimeSpecific(missionResetTime);
+            WeeklyTicker.OnStateChanged += OnWeeklyState;
             DailyTicker.OnStateChanged += OnDailyState;
             MissionTicker.OnStateChanged += OnMissionState;
             CetusTicker.OnStateChanged += OnCetusState;
@@ -48,6 +52,7 @@ namespace VoxLotus.Parsers
         public void Tick(WorldState state)
         {
             TickOperations(state);
+            WeeklyTicker.Tick();
             DailyTicker.Tick();
             MissionTicker.Tick();
             CetusTicker.Tick(state);
@@ -191,6 +196,14 @@ namespace VoxLotus.Parsers
 
             if (!string.IsNullOrEmpty(notification))
                 Broadcast(notification);
+        }
+
+        protected void OnWeeklyState(TickerState oldState, TickerState newState)
+        {
+            AbsoluteResetBroadcast(WeeklyTicker, oldState, newState, "Weekly rewards", ConfigurationManager.Instance.Settings.WeeklyResets);
+
+            if (newState == TickerState.Disabled)
+                WeeklyTicker.ResetToDay(weeklyResetDay);
         }
 
         protected void OnDailyState(TickerState oldState, TickerState newState)

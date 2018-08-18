@@ -71,6 +71,11 @@ namespace VoxLotus
 
         [DefaultValue(CheckState.Checked)]
         [JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty(PropertyName = "WeeklyResets", DefaultValueHandling = DefaultValueHandling.Populate)]
+        public CheckState WeeklyResets = CheckState.Checked;
+
+        [DefaultValue(CheckState.Checked)]
+        [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty(PropertyName = "DailyResets", DefaultValueHandling = DefaultValueHandling.Populate)]
         public CheckState DailyResets = CheckState.Checked;
 
